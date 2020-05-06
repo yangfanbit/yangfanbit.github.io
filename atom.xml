@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://yangfana.top</id>
+    <title>一粟燃星</title>
+    <updated>2020-05-06T15:52:53.847Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://yangfana.top"/>
+    <link rel="self" href="https://yangfana.top/atom.xml"/>
+    <logo>https://yangfana.top/images/avatar.png</logo>
+    <icon>https://yangfana.top/favicon.ico</icon>
+    <rights>All rights reserved 2020, 一粟燃星</rights>
+    <entry>
+        <title type="html"><![CDATA[寻书]]></title>
+        <id>https://yangfana.top/post/Kindle01/</id>
+        <link href="https://yangfana.top/post/Kindle01/">
+        </link>
+        <updated>2020-03-10T15:49:43.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>快速高效，精准打击。告别五花八门的跳转页面。</p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>快速高效，精准打击。告别五花八门的跳转页面。</p>
+<!-- more -->
+<p> </p>
+<h1 id="定向爆破">定向爆破</h1>
+<h2 id="no1-格式限定">No.1 格式限定</h2>
+<p>👇<br>
+<img src="https://i.loli.net/2020/03/11/iKMbRqvs12x6pJu.jpg" alt="" loading="lazy"></p>
+<h2 id="no2-格式严格限定">No.2 格式严格限定</h2>
+<p>👇<br>
+<img src="https://i.loli.net/2020/03/11/8Xghn4VvJ1l5mxe.jpg" alt="" loading="lazy"></p>
+<h2 id="no3-站点限定">No.3 站点限定</h2>
+<p>👇<br>
+<img src="https://i.loli.net/2020/03/11/ihcomtraHbQ5M1I.jpg" alt="" loading="lazy"></p>
+<h2 id="no4-书名严格限定">No.4 书名严格限定</h2>
+<p>👇<br>
+<img src="https://i.loli.net/2020/03/11/kPidBQYpUqEOgv6.jpg" alt="" loading="lazy"></p>
+<h2 id="no5-内容严格限定">No.5 内容严格限定</h2>
+<blockquote>
+<p>使用加号（+）:<br>
+在关键词的前面使用加号，也就等于告诉搜索引擎该单词必须出现在搜索结果中的网页上，例如，在搜索引擎中输入“+机器人+星际+战争”就表示要查找的内容必须要同时包含“机器人、星际、战争”这三个关键词。</p>
+<p>使用减号（-）:<br>
+在关键词的前面使用减号，也就意味着在查询结果中不能出现该关键词，例如，在搜索引擎中输入“科幻-神们自己”，它就表示最后的查询结果中一定不包含“神们自己”。</p>
+</blockquote>
+<br>
+<h1 id="书站推荐">书站推荐</h1>
+<ol>
+<li>ePUBee电子书库：http://cn.epubee.com/books/</li>
+<li>鸠摩搜索：https://www.jiumodiary.com/</li>
+<li>书伴：https://bookfere.com/</li>
+<li>偶书：https://obook.cc/forum-1.htm</li>
+<li>电驴资源搜索：https://cse.google.com/cse/home?cx=006422944775554126616:gbrsbrjbfug</li>
+<li>古登堡计划：http://www.gutenberg.org/</li>
+</ol>
+<blockquote>
+<p>古登堡计划（Project Gutenberg）是一个拥有60,000多种免费电子书的图书馆。在免费的epub和Kindle电子书中选择，下载或在线阅读。您将在这里找到世界上最伟大的文学作品，重点关注已过期美国版权的旧作品。成千上万的志愿者将这些电子书进行了数字化处理，并进行了校对，以进行娱乐和教育。</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[过墙梯]]></title>
+        <id>https://yangfana.top/post/greatwall01/</id>
+        <link href="https://yangfana.top/post/greatwall01/">
+        </link>
+        <updated>2020-03-08T14:59:53.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>暂自两梯。</p>
+<ol>
+<li>谷歌浏览器扩展<br>
+安装后可使用 Google 搜索、邮箱、商店、相册等谷歌服务。</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1>
+<p>暂自两梯。</p>
+<ol>
+<li>谷歌浏览器扩展<br>
+安装后可使用 Google 搜索、邮箱、商店、相册等谷歌服务。</li>
+</ol>
+<!-- more -->
+<ol start="2">
+<li>SSR 代理<br>
+路1 由 阿狸云加速 提供，每日零点重置 2GB 免费区流量，即每日有 2GB 免费流量，对我来说暂时够用。<br>
+路2 由 baacloud 提供，其中免费线有两条，但流量通过签到随机赋予，可叠加，不过期，作备用。<br>
+<br></li>
+</ol>
+<h1 id="谷歌访问助手">谷歌访问助手</h1>
+<p>安装步骤：</p>
+<ol>
+<li>前置：谷歌浏览器</li>
+<li>下载谷歌访问助手文件，解压缩。地址：<a href="https://pan.baidu.com/s/1Jn3QhausfQMHKRola-xEVQ " target="_blank">百度网盘</a> ；提取码：gexa</li>
+<li>打开浏览器输入：<a href="chrome://extensions/">chrome://extensions/</a> ；或者 鼠标点击右上角三点-&gt;更多设置-&gt;扩展程序</li>
+</ol>
+<img src="https://i.loli.net/2020/03/08/IOHLzQsdKSAYq1a.jpg" style="zoom:50%" />
+<ol>
+<li>打开开发者模式，将解压后的文件夹整体拖入，成功安装：</li>
+</ol>
+<p><img src="https://i.loli.net/2020/03/08/OLuW3ypo8AxIPzf.jpg" alt="" loading="lazy"><br>
+<img src="https://i.loli.net/2020/03/08/RtcZYvBjXF8KEUN.jpg" alt="" loading="lazy"></p>
+<p>p.s. 装完，文件夹位置勿动，否则会报错，若移动，请在扩展程序内删除重新安装。<br>
+<br></p>
+<h1 id="ssr代理">SSR代理</h1>
+<ul>
+<li>Windows 通用 SSR 客户端下载：<a href="https://pan.baidu.com/s/1xgZv0tBG1P-mLqj-f0SZpQ " target="_blank">百度网盘</a>；提取码：ewp6</li>
+<li>IOS 平台登录美区账号下载 App：shadowsocket 或者 Quantumlt</li>
+</ul>
+<p>账号收集分享：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">账号</th>
+<th style="text-align:left">密码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">10/23更新 hongkong0759@hotmail.com</td>
+<td style="text-align:left">Hk556677 【已购应用: shadowsocket】</td>
+</tr>
+<tr>
+<td style="text-align:left">10/23更新 qimufx_usa@163.com</td>
+<td style="text-align:left">qimufxUSA1 【已购应用: shadowsocket】</td>
+</tr>
+<tr>
+<td style="text-align:left">11/4更新 kobelbj1412@gmail.com</td>
+<td style="text-align:left">IOSfuli77 【已购应用:Quantumlt X 、Quantumlt、 shadowsocket】</td>
+</tr>
+<tr>
+<td style="text-align:left">2/17更新 smgyangfan15@163.com</td>
+<td style="text-align:left">09gongzhonghao:SMGfuli 【已购应用:Quantumlt X 、Quantumlt、 shadowsocket】</td>
+</tr>
+<tr>
+<td style="text-align:left">2/17更新 smgyangfan02@163.com</td>
+<td style="text-align:left">17gongzhonghao:SMGfuli 【已购应用:Quantumlt X 、Quantumlt、 shadowsocket】</td>
+</tr>
+<tr>
+<td style="text-align:left">9/20更新 mm-gzs@qq.com</td>
+<td style="text-align:left">46Gongzhonghaokzddck 【已购应用: shadowsocket】</td>
+</tr>
+</tbody>
+</table>
+<p>来源网站：https://wohaobang.cn/</p>
+<h2 id="阿狸云加速">阿狸云加速</h2>
+<p>👉 导航页：<a href="https://fox-f.top/ " target="_blank">https://fox-f.top/</a> （随手收藏，域名有时或被污染，可先翻墙再访问。）<br>
+👉 官方教程：<a href="https://h.fox-e.top/user/tutorial" target="_blank">https://h.fox-e.top/user/tutorial</a></p>
+<ul>
+<li>
+<p>通用版添加订阅：<br>
+百度搜索： ssr + 终端 + 使用教程</p>
+</li>
+<li>
+<p>通用版更新订阅：<br>
+安卓-在添加订阅时有开启自动更新设置；iOS 左滑会出现更新字样；win+mac 与刚开始设置时一样，点击图标后选择 不使用代理更新 字样。</p>
+</li>
+<li>
+<p>订阅更新失败解决：<br>
+如果尝试多次订阅更新失败，请使用本地网络直连更新，如果还不行请登录网站重置订阅，然后添加新的订阅地址进行更新。</p>
+</li>
+<li>
+<p>账户删除原因：<br>
+1、45天无使用记录；2、账户过期45天；3、免费区60天到期</p>
+</li>
+</ul>
+<h2 id="baacloud">Baacloud</h2>
+<p>👉 永久网址导航：<a href="https://github.com/baacloud/url " target="_blank">https://github.com/baacloud/url</a><br>
+👉 免代理网址：<a href="https://bit.ly/baacloud" target="_blank">https://bit.ly/baacloud</a><br>
+👉 教程及帮助中心：<a href="https://www.baacloudhelp.com/" target="_blank">https://www.baacloudhelp.com/</a></p>
+<ul>
+<li>
+<p>流量可以通过签到[随机获取100-300M流量]、购买套餐、学者优惠申请获得。</p>
+</li>
+<li>
+<p>每间隔24小时可以签到一次，免费用户每7天必须签到一次，否则无法正常使用。</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[推理之谬误]]></title>
+        <id>https://yangfana.top/post/reasoning01/</id>
+        <link href="https://yangfana.top/post/reasoning01/">
+        </link>
+        <updated>2020-02-29T08:57:14.000Z</updated>
+        <summary type="html"><![CDATA[<p>批判性阅读和聆听的主要目标就在于<strong>判定结论的可接受程度或者价值大小</strong>。<br>
+所谓谬误，就是推理中的欺骗手段，作者有可能利用这个欺骗手段来说服你采纳其结论。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>批判性阅读和聆听的主要目标就在于<strong>判定结论的可接受程度或者价值大小</strong>。<br>
+所谓谬误，就是推理中的欺骗手段，作者有可能利用这个欺骗手段来说服你采纳其结论。</p>
+<!-- more -->
+<p>（1）提供的推理需要明显错误的或者让人不能接受的假设才能成立，因此使推理和结论显得毫无关系；<br>
+（2）把那些明明和结论无关的信息弄得好像和结论有关，以此来分散我们的注意力；<br>
+（3）看似为结论找证据，而证据算数的前提则取决于结论本身已经成立。<br>
+<br/></p>
+<h2 id="常见谬误">常见谬误</h2>
+<p><strong>人身攻击谬误（ad hominem fallacy）</strong><br>
+针对个人的人身攻击或侮辱，而不是直接反驳其提供的理由。<br>
+<br/></p>
+<h3 id="有可能假设是明显错误的"><strong>有可能假设是明显错误的</strong></h3>
+<p>假设越可疑，推理和结论的相关程度也就越小。<br>
+<br/><br>
+<strong>滑坡谬误（slippery slope fallacy）</strong><br>
+假设采取提议的行动会引发一系列不可控的不利事件，而事实上却有现成的程序来防止这类连锁事件的发生。<br>
+<br/><br>
+<strong>追求完美解决方案谬误（searching for perfect solutions fallacy）</strong><br>
+假设因为尝试某种解决方案后还有遗留问题未解决，那么这种解决方案根本就不应该采用。</p>
+<p>如果坐等完美解决方案的出现，我们常常会发现自己固守原地、动弹不得。<br>
+<br/></p>
+<h3 id="推理理由谬误百出"><strong>推理理由谬误百出</strong></h3>
+<p><strong>偷换概念谬误（equivocation fallacy）</strong><br>
+论证中关键词语有两种或者两种以上的含义，一旦不同含义之间的转换被认出来，这个论证就讲不通了。<br>
+<br/><br>
+<strong>诉诸公众谬误（appeal to popularity fallacy，Ad Populum）</strong><br>
+通过引述大部分人都持有这一观点的说法来竭力证明某个论证有道理，错误地假设大部分人喜欢的一切就是有道理的、可以接受的。<br>
+<br/><br>
+<strong>诉诸可疑权威谬误（appeal to questionable authority fallacy）</strong><br>
+引用某一权威的话来证明结论，但该权威对这一论题并没有特别的专门知识。<br>
+<br/><br>
+<strong>诉诸感情谬误（appeal to emotion）</strong><br>
+使用带强烈感情色彩的语言来分散读者或者听众的注意力，让他们忽视相关的理由和证据。常被用来加以利用的感情有 害怕、希望、爱国主义、怜悯和同情。</p>
+<p>当这类情绪反应本不应该和结论的真伪发生关联时，这个谬误就会发生。这类谬误特别常见的三个地方就是广告、政治论辩和法庭论辩。这种谬误的一种常见形式是恶语中伤（name-calling），属于一种人身攻击，主要通过引起人们不好的感情联想的言辞来给人戴帽子，试图诋毁别人。<br>
+<br/><br>
+<strong>稻草人谬误（straw-person fallacy）</strong><br>
+歪曲对方的观点，使它容易受到攻击，这样我们攻击的观点事实上根本就不存在。</p>
+<p>稻草人不是真人，而且很容易被击倒，如同一个人犯了稻草人谬误其立场很容易被攻击一样。要检查一个立场被表现得到底有多公平，最好的办法就是找出所有立场的事实。<br>
+<br/><br>
+<strong>虚假的两难选择谬误（either-or false dilemma fallacy）</strong><br>
+当现实中存在两种以上的选择时，却假设只有两种解决方案。<br>
+<br/><br>
+当我们要为某一类行为寻求解释时常常会遇到越想越糊涂的情形。<br>
+当有人宣称他们发现了导致某个行为的原因，而实际上他们所做的不过是为这种行为起了个名字而已，我们要对这种**乱扣帽子谬误（explaining by naming fallacy）**保持警惕。</p>
+<p>错误地假设因为你为特定事件或行为提供一个名称，你也就合情合理地解释了这个事件。<br>
+<br/></p>
+<h3 id="警惕分散注意力的干扰"><strong>警惕分散注意力的干扰</strong></h3>
+<p>那些尽力要让人接受其断言的人常发现，只要他们防止别人太过详细地审视他的相关理由，他们就可以捍卫这一断言。<br>
+持论者使用的那些推理论证主要是为了转移你的注意力，让你不再关注最相关的那些理由时，你就要特别警惕。<br>
+<br/><br>
+<strong>光环效应谬误（glittering generalities fallacy）</strong><br>
+使用模糊、引发人们强烈情感认同的美德词汇，使我们倾向于同意某件事而不是去细致检查其理由。</p>
+<p>美德词汇的使用是政客们经常玩弄的手腕，因为这个手法可以分散读者或听众的注意力，让他们不去关注具体的行动或政策，而这些行动和政策更容易招致反对和批评。<br>
+<br/><br>
+<strong>转移话题谬误（red herring fallacy）</strong><br>
+一个不相干的话题被插进来，将注意力从原来的论题上转移走，通过将注意力转移到另一个论题上来帮助赢得一场论战。</p>
+<p>谬误顺序：1 甲主题正被讨论；2 乙主题被介绍进来，好像和甲主题有关，实际上并不相干；3 甲主题被置之不理。<br>
+只要你脑子里谨记真正的论题所在，同时牢记解决这一论题所需要的证据，一般而言要找到转移话题谬误并不难。<br>
+这种类型的推理是错误的，因为仅仅改变讨论的主题，很难被当做反对某一断言的一个论证。<br>
+如果一个转移话题的谬误发生，问一下谈话者可不可以回到原来的那个论题。<br>
+<br/></p>
+<h3 id="愚弄人的循环论证"><strong>愚弄人的循环论证</strong></h3>
+<p>结论由同一个结论来证明（只是表述不同）。这样的论证其实是在回避问题，而不是在回答问题。<br>
+<br/><br>
+<strong>循环论证谬误（begging the question fauacy）</strong><br>
+在推理过程中已然假设自己的结论成立的论证。<br>
+<br/></p>
+<h3 id="实践">实践</h3>
+<p>一旦作者有下列行为之一，你就应该驳回其推理论证：</p>
+<blockquote>
+<ul>
+<li>对人不对事</li>
+<li>使用滑坡推理方式</li>
+<li>表现出寻找完美解决方案的趋势</li>
+<li>用模棱两可的话隐瞒真相</li>
+<li>不恰当地诉诸公众意见</li>
+<li>诉诸可疑权威</li>
+<li>诉诸情感</li>
+<li>攻击稻草人</li>
+<li>呈现虚假的两难情形</li>
+<li>通过恶语中伤来解释</li>
+<li>将注意力从论题上转移开</li>
+<li>通过光环效应来让读者分神</li>
+<li>循环论证</li>
+<li>介绍另一个话题来转移注意力</li>
+</ul>
+</blockquote>
+<br/>
+<h3 id="其他"><strong>其他</strong></h3>
+<p><strong>一厢情愿谬误（wishful thinking fallacy）</strong><br>
+混淆“是什么”和“该是什么”<br>
+<br/><br>
+<strong>以偏概全谬误（hasty generalization fallacy）</strong><br>
+一个人仅根据群体中极小部分人的经历就得出有关整个群体的结论。<br>
+<br/><br>
+<strong>强求确定性谬误（impossible certainty fallacy）</strong><br>
+认为一个研究结论如果不是百分百确定的话就应该被抛弃。<br>
+<br/><br>
+<strong>错误类比谬误（faulty analogy fallacy）</strong><br>
+有人提出一个类比，其中却存在重要而又相关的不同点。<br>
+<br/><br>
+<strong>过度简化因果关系谬误（causal oversimplication fallacy）</strong><br>
+依赖并不足以解释整个事件的具有因果关系的因素来解释一个事件，或者过分强调这些因素中的一个或多个因素的作用。<br>
+<br/><br>
+<strong>因果混淆谬误（confusion of cause and effect fallacy）</strong><br>
+将事件的起因和结果相混淆或是认不出两件事之间可能是相互影响的关系。<br>
+<br/><br>
+<strong>忽略常见原因谬误（neglect of common cause fallacy）</strong><br>
+认不出两件事之间之所以有联系是因为常见的第三种元素起作用。<br>
+<br/><br>
+<strong>事后归因谬误（全称为“post hoc, ergo propter hoc fallacy”）</strong><br>
+假设某件事乙是由另一件事甲所造成的，仅仅因为乙在时间上紧随在甲之后。<br>
+<br/></p>
+<p>整理自《学会提问》笔记<br>
+<br/></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[博客搭建及优化教程汇总]]></title>
+        <id>https://yangfana.top/post/blogdiy/</id>
+        <link href="https://yangfana.top/post/blogdiy/">
+        </link>
+        <updated>2020-02-14T13:48:51.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="博客搭建">博客搭建</h1>
+<p>👉  <a href="https://fehey.com/post/hve-notes-start/" target="_blank">Gridea 简易上手教程</a><br>
+👉  <a href="https://gridea.dev/" target="_blank">官方网站</a>　<a href="https://gridea.dev/themes/" target="_blank">主题市场</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="博客搭建">博客搭建</h1>
+<p>👉  <a href="https://fehey.com/post/hve-notes-start/" target="_blank">Gridea 简易上手教程</a><br>
+👉  <a href="https://gridea.dev/" target="_blank">官方网站</a>　<a href="https://gridea.dev/themes/" target="_blank">主题市场</a></p>
+<!-- more -->
+<br/>
+<h1 id="博客优化">博客优化</h1>
+<h2 id="图床">图床</h2>
+<p>上传工具：<a href="https://molunerfinn.com/PicGo/" target="_blank">PicGo</a></p>
+<img src="https://cdn.jsdelivr.net/gh/Molunerfinn/test/picgo-site/first.png">
+<p>优势：开源免费，基于 electron-vue  开发，支持 Windows、macOS 和 Linux。默认支持微博图床、七牛图床、腾讯云COS、又拍云、GitHub、SM.MS、阿里云OSS、Imgur。方便不同图床的上传需求。2.0版本开始更可以自己开发插件实现其他图床的上传需求。</p>
+<p>项目地址：<a href="https://github.com/Molunerfinn/PicGo" target="_blank">https://github.com/Molunerfinn/PicGo</a></p>
+<p>支持插件系统：<a href="https://github.com/PicGo/Awesome-PicGo" target="_blank">插件市场</a></p>
+<blockquote>
+<p>插件使用前置：</p>
+<p>由于插件安装依赖 <code>npm</code>，需安装 Node.js 环境。</p>
+<p>👉 <a href="https://nodejs.org/en/" target="_blank">安装包</a></p>
+<p>👉 <a href="https://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank">安装配置流程</a></p>
+</blockquote>
+<br/>
+<h2 id="评论系统">评论系统</h2>
+<p>采用：<a href="https://valine.js.org/" target="_blank">Valine</a></p>
+<p>简介：一款快速、简洁且高效的无后端评论系统。</p>
+<p>配置：</p>
+<blockquote>
+<p>最初开发者教程：<a href="https://deserts.io/diy-a-comment-system/" target="_blank">https://deserts.io/diy-a-comment-system/</a></p>
+<p>也可参照官网教程：<a href="https://valine.js.org/quickstart.html" target="_blank">https://valine.js.org/quickstart.html </a></p>
+</blockquote>
+<p>管理：</p>
+<blockquote>
+<p>Valine Admin，Valine 评论系统的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板。基于 Akismet API 实现准确的垃圾评论过滤。此外，使用云函数等技术解决了免费版云引擎休眠问题，支持云引擎自动唤醒，漏发邮件自动补发。兼容云淡风轻及 Deserts 维护的多版本Valine。</p>
+<blockquote>
+<p>项目地址：<a href="https://github.com/DesertsP/Valine-Admin" target="_blank">https://github.com/DesertsP/Valine-Admin</a></p>
+<p>教程地址：<a href="https://deserts.io/valine-admin-document/" target="_blank">https://deserts.io/valine-admin-document/</a></p>
+</blockquote>
+</blockquote>
+<p>评论头像设置（可选）：</p>
+<blockquote>
+<p>Valine 目前使用的是 @<a href="https://cn.gravatar.com/" target="_blank">Gravatar</a> 作为评论列表头像。</p>
+<p>请自行登录或注册 @<a href="https://cn.gravatar.com/" target="_blank">Gravatar</a> ，然后修改自己的头像。</p>
+<p>评论的时候，留下在的 @<a href="https://cn.gravatar.com/" target="_blank">Gravatar</a> 注册时所使用的邮箱即可。</p>
+</blockquote>
+<p>👉 <a href="https://kveln.cn/post/qE678A4ce/" target="_blank">如何在 Gridea 中添加 Valine 评论系统</a></p>
+<p>（有时间再整理）</p>
+<br/>
+<h2 id="google-analytics">Google Analytics</h2>
+<p>简介：  Google 为网站提供的数据统计服务。可以对目标网站进行访问数据统计和分析，并提供多种参数供使用。</p>
+<p>配置： 👉 <a href="https://blog.csdn.net/u013692823/article/details/86593330" target="_blank">参考教程</a></p>
+<blockquote>
+<p>如何将将 analytics.js 添加到网站中：</p>
+<p>应该在 <code>&lt;head&gt;</code> 标记顶部附近以及任何其他脚本或 CSS 标记之前添加 Google Analytics（分析）代码，并将字符串 'GA_MEASUREMENT_ID' 替换为您要处理的 Google Analytics（分析）媒体资源的媒体资源 ID（也称为“衡量 ID”）。</p>
+<p>代码：</p>
+<pre><code class="language-javascript">&lt;!-- Google Analytics --&gt;
+&lt;script&gt;
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+&lt;/script&gt;
+&lt;!-- End Google Analytics --&gt;
+</code></pre>
+<p>来源：<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs?hl=zh-cn" target="_blank">analytics.js 库</a></p>
+</blockquote>
+<br/>
+<h2 id="tips">Tips</h2>
+<h3 id="链接豆瓣读书-观影">链接豆瓣读书、观影</h3>
+<p>👉 <a href="https://github.com/iMuFeng/bmdb/blob/master/README.md" target="_blank">方式 1</a></p>
+<br/>
+<h3 id="链接跳转">链接跳转</h3>
+<ul>
+<li>
+<p>邮箱直接跳转链接：<code>mailto:yangfannwu@126.com</code></p>
+</li>
+<li>
+<p>QQ跳转链接：<code>tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=861150828</code></p>
+<p>结尾数字改为你自己的QQ号码</p>
+</li>
+</ul>
+<br/>
+<h3 id="阅读次数与访客统计">阅读次数与访客统计</h3>
+<p>采用<strong>卜算子</strong>：</p>
+<pre><code class="language-html">&lt;script async src=&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;
+  文章阅读&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次
+  站点被访&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次
+  站点访客&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人
+</code></pre>
+<br/>
+<h3 id="instantpage-加速博客"><strong>instant.page</strong> 加速博客</h3>
+<blockquote>
+<p>将以下代码添加到 <code>&lt;/body&gt;</code> 之前：</p>
+<pre><code class="language-HTML">&lt;script src=&quot;//instant.page/3.0.0&quot; type=&quot;module&quot; defer integrity=&quot;sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>来源：<a href="https://instant.page/" target="_blank">instant.page</a></p>
+</blockquote>
+<br/>
+<h3 id="点击爱心特效">点击爱心特效</h3>
+<pre><code class="language-javascript">!function(e,t,a){function n(){c(&quot;.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 500%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}&quot;),o(),r()}function r(){for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)}function o(){var t=&quot;function&quot;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e){t&amp;&amp;t(),i(e)}}function i(e){var a=t.createElement(&quot;div&quot;);a.className=&quot;heart&quot;,d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement(&quot;style&quot;);a.type=&quot;text/css&quot;;try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)}function s(){return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+&gt; ```
+</code></pre>
+<br/>
+<h3 id="fancybox">FancyBox</h3>
+<pre><code class="language-html">&lt;!-- 1. Add latest jQuery and fancybox files --&gt;
+
+&lt;script src=&quot;//code.jquery.com/jquery-3.3.1.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css&quot; /&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js&quot;&gt;&lt;/script&gt;
+
+
+&lt;!-- 2. Create links --&gt;
+
+&lt;a data-fancybox=&quot;gallery&quot; href=&quot;big_1.jpg&quot;&gt;
+    &lt;img src=&quot;small_1.jpg&quot;&gt;
+&lt;/a&gt;
+&lt;a data-fancybox=&quot;gallery&quot; href=&quot;big_2.jpg&quot;&gt;
+    &lt;img src=&quot;small_2.jpg&quot;&gt;
+&lt;/a&gt;
+
+
+&lt;!-- 3. Have fun! --&gt;
+</code></pre>
+<br/>
+<h3 id="浏览器标题恶搞">浏览器标题恶搞</h3>
+<pre><code class="language-javascript"> var OriginTitle = document.title;
+ var titleTime;
+ document.addEventListener('visibilitychange', function () {
+     if (document.hidden) {
+         $('[rel=&quot;icon&quot;]').attr('href', &quot;/img/trhx2.png&quot;);
+         document.title = '呜~页面崩溃了！';
+         clearTimeout(titleTime);
+     }
+     else {
+         $('[rel=&quot;icon&quot;]').attr('href', &quot;/img/trhx2.png&quot;);
+         document.title = '噫~又好了！' + OriginTitle;
+         titleTime = setTimeout(function () {
+             document.title = OriginTitle;
+         }, 2000);
+     }
+ });
+</code></pre>
+<br/>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[写给新的一年]]></title>
+        <id>https://yangfana.top/post/2019/</id>
+        <link href="https://yangfana.top/post/2019/">
+        </link>
+        <updated>2020-01-03T14:49:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>二零一九年风也似地过去了，新世纪的头二十年成为昨日，真让人有点不敢相信。在新年来临之际，本该说点儿展望未来，制订计划之类的事儿，但最近我总处在一种混乱的、难以剥离的思想状态中。到一个安静的环境，想想过去的一年。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>二零一九年风也似地过去了，新世纪的头二十年成为昨日，真让人有点不敢相信。在新年来临之际，本该说点儿展望未来，制订计划之类的事儿，但最近我总处在一种混乱的、难以剥离的思想状态中。到一个安静的环境，想想过去的一年。</p>
+<!-- more -->
+<p>回望过去，人最先记起的多是遗憾的事，如果当时，如果当时…这种心态尤其在我玩游戏时体现出来，一次次读档，追求完美同步。可人生哪是能存档暂离的游戏，每一秒都在向前，过去的永恒地过去了，再不能回头。我想，转换关注点该是更好的回忆方式，信息的解读往往比信息本身更重要。多多关注积极向上的事物，心态变易，美好事情也会关注你。</p>
+<p>于是我会想起，正月里家人围着一桌菜肴的热热闹闹，临走时田埂上破土而出的青葱小草，清明时淅淅沥沥的漫天烟雨；夏日里午后校园林间此起彼伏的声声蝉鸣，饭后擎一支雪糕划过炎日的自在放松，傍晚球场上浸透汗水的活力昂扬；秋虽短，每有木叶飘落，仰头凝望，以高远之空为底，如诗之画；正经冬，树虽眠而内蕴生机，外虽寒而内有暖气，大雪一纷飞，人间舞精灵，万物换颜，均若初见。身有五感而知觉，幸甚，幸甚！</p>
+<p>“如果星星每千年闪烁一次，我们都会仰视赞美这个世界的美丽，但是因为他们每天都在闪烁，我们将之视为理所当然。”</p>
+<p>今天在寝室嗅到舍友所带饭菜飘散出来的香味，忽记起我六七岁时，奶奶在老家火灶下洞口烤番薯的样子。灶上是个大铁锅，一般多是锅上炒菜时，奶奶顺手丢一两个番薯进洞，等几个菜炒好，番薯也就差不多熟了。出洞时薯表黑如炭，然剥开皮焦香四溢，那股混合了童年的食香，从不曾忘记，一闻见就能记起。</p>
+<p>转眼之间，我离开家乡求学已经快七年了。现今不若古时，交通便捷，通讯方便，倒很少时候心里烦忧离别之愁。大学毕业，求学之地从西北换到华北。生活趋向更平淡，求一些精神上的解答，与友联系，与家人交谈，虽常有世界第一难题之烦恼，但总体顺遂，平静无波。有闲情，鼓捣一些感兴趣的东西；有余暇，读读宇宙与星辰的想象作品。深感幸福之至，珍惜拥有一切，甚至于从每次别离中剖出一种浪漫来体味。当然，人生在世，如琴弦下流淌出的音符，要平缓，也要激昂，时而波澜不惊，时而澎湃汹涌。今年即是变化的一年，最终的毕业即将来临，六月盛夏将是新的起点。愿自己拥感恩之心，体验世间百态，短则短矣，活得真切方好。</p>
+<p>新年钟声余音未尽，我们又都长了一岁。对于过去这一年，对于已过这些年，总该有个结语：成长之路有阵痛也有欢愉，幸运的是，你仍可以在其中做出选择。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[刺激与拖延]]></title>
+        <id>https://yangfana.top/post/cjyty/</id>
+        <link href="https://yangfana.top/post/cjyty/">
+        </link>
+        <updated>2019-12-08T17:08:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>短程、持续的刺激是埋葬光阴的坟墓。<br>
+没有什么能永垂不朽，但可以拖到天长地久。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>短程、持续的刺激是埋葬光阴的坟墓。<br>
+没有什么能永垂不朽，但可以拖到天长地久。</p>
+<!-- more -->
+<p>中午方起。周末有天然的氛围让我想放纵自己，大多也是这么做的。在以前忙碌的时候，我总在想，如果能给我舒适的休息时间，我要看什么什么书，写多少多少文章，锻炼这个那个技能，然而热情总只有三分钟，哦不，头都开不了。放假先稍微休息下吧，一般休息完就是开学了。所以，你告诉我时间都去哪里了？全丢在日复一日的舒适圈了，关键如果是心安理得还好说，你并不会有这些烦恼。可头顶万丈长虹，远眺浩瀚星空，常思考人生以外的东西，对现状生出平凡的焦虑，不甘而懒，才是最痛苦的。</p>
+<p>拖延，不找借口，缘由就是延迟痛苦。也不一定是真的痛苦，很可能是想象出来，生成的虚拟痛苦。而且做抉择和决策也是要消耗意志力的，这样就很容易去选择那些容易走而不论方向的道路。</p>
+<p>所以解决的方法是什么呢？</p>
+<p>首先光靠意志力是妄想，这玩意儿单位时间内总量有限，太费力的努力往往会折服于舒适。相较而言，变环境阻力小多了，由外而内，让周围带你的节奏。</p>
+<p>其次是少给自己抉择，用习惯去代替意志。譬如，一铃响就起床，而不是躺着看手机；一下床就洗漱，而不是坐着玩平板；一洗漱完就出门去吃早餐，而不是这里蹭蹭，那里磨磨，却啥都没干；一开电脑就先把最难的任务定个时间完成，而不是先刷个知乎或新闻，放松大脑……形成一怎么就干嘛的习惯，不用决策，直接做，有时候不思考意义才是最高效的。（扯）</p>
+<p>而我自身最主要的一个问题就是躁动，心性依然像个贪玩的孩子。好奇心是进步的动力，可不耐烦却是半途而废的预兆啊。心得沉下去，专注专注再专注。</p>
+<p>最重要的，可别晚上想了千条路，早起依旧卖豆腐。变化才是生命最本质的特征。<br>
+ </p>
+<p>过午近两点去七食堂，还开着门，三三两两，散着坐着。点了习惯的餐，走了习惯的路。实验欲速，论文欲速，可我想生活慢下来啊。</p>
+<p>耳朵里塞着耳机听着歌，填着就业协议，签下人生转折书的那个瞬间，和其他瞬间并没有多不同感受。也许多年以后回过头来，会感叹几句，但现在，一个平凡的下午，要说跟平常有什么稍稍不一样的地方：晚饭后，加了一杯布丁，有点甜。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[二零一九 北京初雪]]></title>
+        <id>https://yangfana.top/post/2019bjcx/</id>
+        <link href="https://yangfana.top/post/2019bjcx/">
+        </link>
+        <updated>2019-11-29T15:33:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>出门时候，雪似刚起，和着风，洋洋洒洒。我把耳机挂上，衣领竖起，去取我的包裹。</p>
+<p>天色渐暗，雪花不仔细瞧倒是不易见，但一辆汽车驶过，尾灯下便现出他们飘落的身影，一辆一辆，雪也仿若一层一层落。我歪着头，听着耳朵里传来 Life is strange 的主题曲，突然觉得，生活之美好，永远是当下一刻。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>出门时候，雪似刚起，和着风，洋洋洒洒。我把耳机挂上，衣领竖起，去取我的包裹。</p>
+<p>天色渐暗，雪花不仔细瞧倒是不易见，但一辆汽车驶过，尾灯下便现出他们飘落的身影，一辆一辆，雪也仿若一层一层落。我歪着头，听着耳朵里传来 Life is strange 的主题曲，突然觉得，生活之美好，永远是当下一刻。</p>
+<!-- more -->
+<p>今天我是五点半才睡的，然而我闭眼预备入眠的时间是昨夜十一点多。不是失眠，更不是玩手机。我发烧了。</p>
+<p>其实在努力入睡时，全身就好似变烫了。我也不是很清楚自己到底睡着了没有，就是各种胡思乱想的担心，变成画面和声音在脑袋里回荡，反反复复，整个人至于恍惚。折腾到两点，一摸额头，烫得很。挣扎着爬起身来，打一盆温水，用毛巾给自己降温。把毛巾卷成一团敷上额头，闭上眼睛期待能有些帮助。思维滞缓，如何熬过这漫漫长夜？发烧的症状昨天下午时就出现了，当时 Herr张 帮忙送我去校医院，量下来 39.5°C，医生直接让转院。 于是 Herr张 又不辞辛苦将我送至区医院，挂号检验开药，等待时间略长，但血常规出来仅是炎症。没什么大问题，总是好的。晚上也吃了药，哪知道这么快又开始了，烧在被窝里时，我的整个人生在脑海里回荡。</p>
+<p>高烧持续不退，辗转反侧。舍友们发觉后，一齐爬出暖和的被窝，预备送我去医院。零下五度的北京在车窗外呼啸退去，我觉得也不是那么冷了。</p>
+<p>头晕乎乎的。</p>
+<p>医院深夜是急诊值班，我还从来没在这个时间点来过。大厅里长椅上或坐或躺着一些人，不知是病人还是家属，还都靠在一起。其中有一对中年夫妻，年纪估摸着得五十多了，丈夫头枕一个褐色的旧旅行包侧躺着，面对着椅背，不知睡着了没有，妻子正举着筷子，在饭盒里夹着什么，亦不知为何在这时才吃起饭来。</p>
+<p>先挂号，然后去找医生就诊。半夜的门诊室依旧不停歇，排了好一会儿队。由于下午已经化验过血液，医生很快就给我开了药和输液单。药房在二楼，电梯里有位全身罩住躺着的人，刚开电梯门吓了我好一跳，毕竟又是半夜、又是医院。后来估摸着是医院的电梯管理员，可能太累了吧。</p>
+<p>输液室内人满满当当，我找了个角落的躺椅，坐下来等待护士。</p>
+<p>右手边半躺着一位学生模样的短发女生，她用手臂盖着半边脸，在跟两位我开始认为是她同学的女生聊天。聊着聊着，我左边似在瞌睡的女生也加进来了，该是认识的。</p>
+<p>左手输进身体一小股凉意，脑袋也清醒些。闲着也不想看手机，便与她们攀谈起来。</p>
+<p>她们四个是同事，都在 XDF 工作。短发女生今晚加班，身体出状况，晕倒了，她们几个关系不错，合力送来医院，好在没有什么大碍。我这段时间正找工作，便往这方面多谈了些。她们有三都是程序员，还挺巧，其中一位还是我的学姐，毕业于 BIT 计算机学院，工作六七年，一直呆北京。相比而言，短发女生工作经历可算丰富，本科学的电气，校招专业对口去了高铁，一年不到就辞了，直接放弃专业，进了京东的物流部门，没多久，还是觉着没意思，辞职转行当老师……才几年，换了三个行业，而且干得都不错（同事语），有些厉害。我问她准备在老师这个职业长呆吗，“不，我现在的梦想职业就是不工作……”，她的身体状态这几年一直不太好，上次公司运动会上被抓去长跑就险些晕倒，现在公司又上新项目，连续加班，终是绷不住了。</p>
+<p>我们相互叹息着人生，吐槽着社会…</p>
+<p>不知不觉我的输液将尽，医室里先前的人们已渐渐散去，据我观察，在这段时间，有两对情侣、一对中年夫妻、两学生、两老人，来过又走了。指针拨近五点，我也该离去，短发女生还没输完，她的同事们先行撤回公司打卡，再买了早点赶过来，正巧迎面遇上，“学姐，还有各位姐姐们，再见啦~”</p>
+<p>再见，再见。</p>
+<p>我向天空伸出手，掌心里落下丝丝凉意，一场盛大的初雪开始了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[晨记]]></title>
+        <id>https://yangfana.top/post/cj/</id>
+        <link href="https://yangfana.top/post/cj/">
+        </link>
+        <updated>2019-11-28T01:16:06.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>晴</strong><br>
+ <br>
+往前数一次早睡早起，不知什么日月。总算在极端放逐之后又勉强住了自己，故清晨一记，望保持。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>晴</strong><br>
+ <br>
+往前数一次早睡早起，不知什么日月。总算在极端放逐之后又勉强住了自己，故清晨一记，望保持。</p>
+<!-- more -->
+<p>时间流逝的捷径就是让精神暴露在易得、浅显的信息流冲击中，绵绵不绝且不知不觉。解决的关键在于，先有对 当前状态的主动感知，之后有魄力立即抽离陷入的物理环境。由外而内，可为有效之法。</p>
+<p>起床泡一杯杯咖啡，临出门，瞥见一缕阳光从门下半窗洒入寝室，映到天花板上一小片柔黄。温度虽低，心却暖和起来。寝室楼前有一排柏树，走在树下，风摇枝丫声在头顶起伏。风不很大，群叶似蝴蝶乱舞，姿态各异，形迹万千。踏一脚叶身四碎，咯吱咯吱，一夜之间整条大道成了它们的天下。</p>
+<p>刚读鲁迅先生一篇随笔，主论个人的自大与群体的自大，警醒起来。</p>
+<p>有国家荣誉感、自豪感固然是好的，但可别自己无甚才能，拿国家来当幌子。吹嘘制度、国粹，一有别国人认可，便与有荣焉。遇事时若胜，一群人中有自己，仿佛自己脸上也有光了；若败，则败不止一人，推脱全责亦可。如此陋习，且自警惕。</p>
+<p><strong>多说一句，自我归类于群体时，先问问自己能贡献什么价值。荣誉感、自豪感，更应该在自己本身获得成就时涌现，而非因出生前就意外获得的身份而平添。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[明天周六！]]></title>
+        <id>https://yangfana.top/post/mtzl/</id>
+        <link href="https://yangfana.top/post/mtzl/">
+        </link>
+        <updated>2019-11-15T15:22:55.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>风起</strong><br>
+ <br>
+在周五的晚上，很少见，我竟然在零点前上床了。五味杂陈。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>风起</strong><br>
+ <br>
+在周五的晚上，很少见，我竟然在零点前上床了。五味杂陈。</p>
+<!-- more -->
+<p>一个个誓言仿若嘲笑嘴角的纹路，也只能报以苦笑。</p>
+<p>今天也是开学来相当勤快的一天。早七点半多起，因担心导师早上会找，匆匆赶去实验室。（连续三天早饭，赞一个）实际并未有，到实验室快九点，准备一番，还是装几个电池吧。一顿忙碌。</p>
+<p>中间接到两电话，一个是FC，一个是JX。纳闷了，他们难道约好到这个时间点？我满以为十一月中旬，各大公司秋招都尘埃落定了呢。下午FC电话面试，推到5点多，自我感觉还行，就是对他们薪资待遇不感冒。我到底想要什么？我又在问自己。</p>
+<p>约了下午一点到三点的SEM，为了赶时间，十二点多到停车场边吃的快餐。</p>
+<p>不去想事情本身的意义，只是去做，提前用简短的时间做决定。有时候还是挺有益处的。一个是思路清晰，不想杂七杂八的，做的效率也随之水涨船高；其二是，有些之前想过不太能接受/做到的事儿，竟稀里糊涂就过去了，人强大的适应性可见一斑。</p>
+<p>傍晚，餐后取快递。路上，瞧见路两旁银杏树，在几天大风吹扫下，大多成光杆儿状，光秃秃的枝丫指向天际，脚下是黄灿灿的大地。可有勇士，不知是之前树叶本就很多，亦或是枝丫根上更有劲儿，亦或是不舍，好像几天的大风对他不算什么一样，依旧层次分明挂着各种高度的叶儿。我追究其原因，可我又很快抛却了这条思考的路，那又怎么样呢？勇士在这里，只是宣说，我，独一无二。</p>
+<p>每天的琐碎，若不诉于笔端，必然被时间所抛弃。非是追念永恒，只是，木犹如此……</p>
+<p>晚安。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[回忆是一条没有归途的路]]></title>
+        <id>https://yangfana.top/post/hysytmygtdl/</id>
+        <link href="https://yangfana.top/post/hysytmygtdl/">
+        </link>
+        <updated>2019-11-14T15:42:44.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>晴 微风 寒</strong><br>
+ <br>
+一顿早餐，精神涣散。时间流逝地让人麻木，刹不住的惯性让麻木成为一种常态。2020，曾一度让我觉得遥不可及的未来，相距也只剩下五十多天。哦，我的生日也快到了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>晴 微风 寒</strong><br>
+ <br>
+一顿早餐，精神涣散。时间流逝地让人麻木，刹不住的惯性让麻木成为一种常态。2020，曾一度让我觉得遥不可及的未来，相距也只剩下五十多天。哦，我的生日也快到了。</p>
+<!-- more -->
+<p>过去都是假的，回忆是一条没有归途的路，以往的春天都不复存在。</p>
+<p>下午睡了很长的一觉，碎裂梦境贯穿始终。梦中见到一面镜子，一切都很清晰，除了自己的脸。那个世界没有线性的时间，也从不触发对自身存在的怀疑。在梦幻中回忆前梦，虚幻极致到真实。那一种真实如此强烈，以至于醒后还沉浸恍惚于不曾发生的过去。空中雨滴声渐起，什么时候能再续前梦？</p>
+<p>《神话》里有一位教授，一心为长生不老，全不在意身处之境，只望着梦寐以求的天宫拾级而上。白玉台阶，一级一级地接连在他身后坠落，走向长生不老，也走向死亡。不可阻挡，无法避免，永不回头。即使明知紧随脚后的那级台阶往下坠的绝对倾向，也只能在往前迈步的同时，想象它的缓缓下降。</p>
+<p>所有旧时坍缩成一幅画，再无人能见。</p>
+<p>我沉溺想象，闭上眼睛，退后既已不能，望前的目光也放弃了。</p>
+<p>所谓现实，转瞬即逝。</p>
+<p>哎。</p>
+]]></content>
+    </entry>
+</feed>
