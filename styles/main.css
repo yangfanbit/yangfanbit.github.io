@@ -2108,7 +2108,7 @@ pre > span.copy-code:hover {
   font-weight: bold;
 }
 body {
-      background-color: #F6F6F6;
+      background-color: #DCDCDC;
     }.header {
         width: 1024px;
         margin: 0 auto;
@@ -2234,7 +2234,9 @@ body {
     }
     .head-top-line {
       background: #000;
-    }
+    }.pace .pace-activity {
+        background: #000 !important;
+      }
     .brand {
       background: #000000fe;
     }
