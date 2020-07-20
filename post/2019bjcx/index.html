@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>二零一九 北京初雪 | 一粟燃星</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/favicon.ico?v=1593312949416">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/favicon.ico?v=1595257722487">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -389,7 +389,7 @@
 </script>
         <div class="section-box box-shadow-wrapper">
           <div class="section bg-color post post-page">
-            <header class="post-header">
+            <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://yangfana.top/post/2019bjcx/">
       二零一九 北京初雪
@@ -400,7 +400,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2019-11-29</span>
+      <span class="publish-time" data-t="2019-11-29 23:33:33">2019-11-29</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -436,7 +436,7 @@
     </span>
     
   </div>
-</header>
+</section>
             <div class="post-body next-md-body" id="post_body">
               <p>出门时候，雪似刚起，和着风，洋洋洒洒。我把耳机挂上，衣领竖起，去取我的包裹。</p>
 <p>天色渐暗，雪花不仔细瞧倒是不易见，但一辆汽车驶过，尾灯下便现出他们飘落的身影，一辆一辆，雪也仿若一层一层落。我歪着头，听着耳朵里传来 Life is strange 的主题曲，突然觉得，生活之美好，永远是当下一刻。</p>
@@ -990,7 +990,7 @@
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -2098,6 +2098,28 @@ Life is Strange.&lt;br&gt;
 
 <input hidden id="copy" />
 <script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
   let language = '';
   if (language !== '') {
     let map = new Map();
@@ -2247,5 +2269,9 @@ Life is Strange.&lt;br&gt;
 
 
 <script src="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/media/js/cool.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/lete114/CDN/Sum/sakura.js"></script>
 
 </html>
