@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yangfana.top</id>
     <title>一粟燃星</title>
-    <updated>2020-07-20T15:08:45.853Z</updated>
+    <updated>2020-09-16T08:42:55.102Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yangfana.top"/>
     <link rel="self" href="https://yangfana.top/atom.xml"/>
@@ -10,23 +10,20 @@
     <icon>https://yangfana.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 一粟燃星</rights>
     <entry>
-        <title type="html"><![CDATA[回乡偶书]]></title>
+        <title type="html"><![CDATA[五月南风起]]></title>
         <id>https://yangfana.top/post/hxos/</id>
         <link href="https://yangfana.top/post/hxos/">
         </link>
         <updated>2020-05-23T14:30:20.000Z</updated>
-        <summary type="html"><![CDATA[<p>从短暂的午休中醒来，好像上课铃刚刚打响。夏日的空气灌进我的喉咙，眼睛还是睁不开。这一觉，竟睡过去十年。</p>
+        <summary type="html"><![CDATA[<p>初醒，外边世界模模糊糊，好像听见了上课铃的响声。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>从短暂的午休中醒来，好像上课铃刚刚打响。夏日的空气灌进我的喉咙，眼睛还是睁不开。这一觉，竟睡过去十年。</p>
+        <content type="html"><![CDATA[<p>初醒，外边世界模模糊糊，好像听见了上课铃的响声。</p>
 <!-- more -->
-<p>揉揉眼，阳光直射，麦田上热浪扭曲的空间把远处的景物都给荡漾起来，时维五月，我又回到了故乡。<br>
-晒场上，斗笠下，奶奶擎着一把连枷，挥上舞下。起落中跳脱出一种节奏，菜杆炸裂，油菜籽四散崩跳，从一根根细长管越入到广阔的新世界。尽情享受当下的火热吧，新世界里不仅有光明和大地，还有一种机器叫榨油机。</p>
+<p>揉了揉眼睛，你看。高空悬炎日，南风卷麦浪，天地随之于浪尖扭曲，沙沙声不断穿过耳膜。时光仿佛依旧历，确是十年弹指一挥间。</p>
+<p>五月故乡，久违了。</p>
+<p>晒场上，斗笠下，奶奶擎着一把连枷，挥上舞下。起落中跳脱出一种节奏，菜杆炸裂，油菜籽四散崩跳，从一根根细长管越入到广阔的新世界。尽情享受当下的火热吧，新世界里不仅有光明和大地，还有一种机器叫榨油机。</p>
 <p>奶奶跟我讲，她刚刚在田间捉到一只鸽子，当时它扑棱着翅膀在丛丛麦秆中挣扎，一小节翅膀被缠住，逃不脱，飞不走。那一刻，它遇见了我奶奶，那一刻，它一生的命运就转交他人。奶奶见它时，些许心急，扯坏那节翅膀，它可能再飞不好了。一只铁笼，一碗清水，一盘谷粒，我与它初次见面的情形就是这样的。我凑近瞧它，它斜着眼睛看我，白灰交错的身体在轻轻颤抖，束缚的自由表征出未来的恐惧。鸽兄，你听我一句，活泼些、激昂些，做个解闷的玩意儿，能活久些。</p>
 <p>夏夜至，凉风来，鸽兄，你睡了吗？这样平静的夜晚，你我都希望可以更久一点。</p>
-<br>
-<blockquote>
-<p>所谓连枷，将成排的竹片连到一根木杆上是也。竹排能随着木杆的挥舞而翻转，借离心力和重力拍打需要脱粒的谷物。据说早在公元前7世纪就已出现，宋朝时还短暂上过战场，一种工具的历史，竟能这么长久。</p>
-</blockquote>
 ]]></content>
     </entry>
     <entry>
@@ -188,7 +185,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[推理之谬误]]></title>
+        <title type="html"><![CDATA[推理谬误]]></title>
         <id>https://yangfana.top/post/reasoning01/</id>
         <link href="https://yangfana.top/post/reasoning01/">
         </link>

@@ -2052,7 +2052,7 @@ p > code {
   }
 }
 body {
-      background-color: #F1FAFA;
+      background-color: #F6F6F6;
     }.header {
         width: 1024px;
         margin: 0 auto;
@@ -2068,7 +2068,11 @@ body {
     }
     * {
         font-family: 'PingFang Medium';
-    }body {
+    }
+    .katex-block *{
+      font-family: 'KaTeX_Main';
+    }
+    body {
       color: #555;
     }
     .next-md-body {
@@ -2166,12 +2170,6 @@ body {
       border-bottom-color: #f38181;
     }.bg-color {
       background-color: #fffffffe;
-    }
-    .gemini .blog-header, .gemini .sidebar-wrapper, .gemini .article-wrapper, .gemini .post, .gemini .page, .gemini .section, .gemini .section-box, .gemini .sidebar-box, .gemini .friends-section {
-      border-radius: 5px;
-    }
-    .pisces .blog-header, .pisces .sidebar-wrapper, .pisces .article-wrapper, .pisces .section, .pisces .sidebar-box, .pisces .friends-section {
-      border-radius: 5px;
     }
     .site-meta {
       background: #000 !important;
