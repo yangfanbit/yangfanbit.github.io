@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客，杨帆">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>角蟾与游骑兵 | 一粟燃星</title>
+<title>杭州小记 | 一粟燃星</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/favicon.ico?v=1603899555762">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/media/css/gemini.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/media/fonts/font-awesome.css">
@@ -61,8 +61,8 @@
 </script>
 
 
-  <meta name="description" content="角蟾与游骑兵" />
-  <meta name="keywords" content="读书,随笔" />
+  <meta name="description" content="杭州小记" />
+  <meta name="keywords" content="随笔" />
 </head>
 
 <body>
@@ -228,7 +228,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/yangfanbit/yangfanbit.github.io@master/images/avatar.png"/>
@@ -307,6 +308,202 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%85%AB%E6%9C%88%E4%B9%8B%E7%BA%A6">八月之约</a></li>
+<li><a href="#day-1">DAY 1</a></li>
+<li><a href="#day-2">DAY 2</a></li>
+<li><a href="#%E5%88%86%E5%88%AB">分别</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -394,8 +591,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yangfana.top/post/jcyyqb/">
-      角蟾与游骑兵
+    <a class="post-title-link" href="https://yangfana.top/post/hzxj/">
+      杭州小记
     </a>
   </h1>
   <div class="post-meta">
@@ -403,19 +600,13 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2018-11-08 16:08:20">2018-11-08</span>
+      <span class="publish-time" data-t="2020-10-17 22:42:16">2020-10-17</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-folder-o"></i>
       <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://yangfana.top/tag/lnTLg8oVO/">
-        <span>读书</span>
-      </a>、
-      
       
       
       <a href="https://yangfana.top/tag/n-m-AMDnz/">
@@ -428,17 +619,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>8<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>449<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>2139<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/jcyyqb/" data-flag-title="角蟾与游骑兵" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/hzxj/" data-flag-title="杭州小记" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -447,16 +638,68 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>大概在前天。值班时候读欧亨利短篇小说集，里面有这样一篇：</p>
+              <p>毫未知觉，杭州之行已是两周前的事儿了。</p>
+<p>自四五月份忙于毕业杂事以来，日记益少，自我对话常只在心里进行，博客亦是许久未更。国庆出游，脱出生活的惯性，且一记。</p>
 <!-- more -->
-<p>年轻的游骑兵带着他的情人——一只角蟾，加入边境护卫队，且很好地融入了这个集体。在一次缉拿边境强盗的追捕中，他失踪了，并被护卫队友当成了逃兵，且以此为耻。一年后，护卫队执行一次任务路过当初发生追捕的地点附近，他们见到了一位孤身狙击三个匪徒的牛仔尸骸，突然角蟾从破烂衣物中探出身来，队员们认出了他们的战友，那么英勇，联队的荣誉从未丧失，以歌颂，以敬致。</p>
-<p>我讲得挺啰嗦，原文也不很长，只是叙说了更多的细节。</p>
-<p>老实说，我当时读完的第一感想是关于生命的灿烂与早逝。在如此年轻的光景，就早早献出了生命，我敬佩他的英勇，更惋惜：他对这个世界的多彩纷杂还所知甚少时，就丧失了继续感受的机会。</p>
-<p>生命是脆弱的，生活是无常的。</p>
-<p>在知识获取、人生感怀方面，我要把每一天都当成是最后一天来度过，生怕消逝之前，人无知生无趣，尚未了解自身即已化为齑粉。“他来到了这个世界上，好像从未来过。”</p>
-<p>当然，生命也是一个连续的过程，尽管死亡的结局无可避免，当生命正是因由消弭才成其价值。故在此，我要有计划地了解事物，学习新知识，这样才能日日更新，同时锻炼技能，有自足之力。</p>
-<hr>
-<p>p.s. 小说标题《吉米·海斯和缪里尔》</p>
+<h3 id="八月之约">八月之约</h3>
+<p>“XX，国庆有计划有没咯？”</p>
+<p>“还没想好啊，现在可忙嘞。”</p>
+<p>“忙啥子？你还在学校？”</p>
+<p>“可不是，后天答辩，PPT还没弄完呢……”</p>
+<p>“加油加油，没事儿的，放心！”</p>
+<p>“嗯嗯，没曾想，竟然弄到八月末才安排答辩，毕业旅游是木有了。”</p>
+<p>“国庆一起啊，我这边还有朋友，你没计划的话，一起转转呗~”</p>
+<p>“嗯，暂时还没想，应该没啥事儿。”</p>
+<p>“那就这样定了！”</p>
+<p>“好的，先不说了，我赶紧弄PPT去了。”</p>
+<p>……</p>
+<p>建国七十一年后的傍晚。</p>
+<p>南方某座小镇的站台，暖黄的阳光随着车门的开启，缓缓落在三年未见的好友身上。</p>
+<p>“你还是老样子啊”</p>
+<p>“呵，小伙子又变帅了”</p>
+<p>几年的光阴似乎被瞬间跨越。</p>
+<p>没有去订好的座位，我们一道立于车厢连接处，聊聊各自近况。</p>
+<p>原本目标地是上海，由于疫情以及车票等原因，后改为杭州，倒是离我近了许多。好友坐高铁而来，与我同向，正好一辆车。</p>
+<p>载着一厢语笑喧阗，火车在金黄的原野上风驰电掣。</p>
+<p>我自认感性，是那种迟钝的感性，当时不觉，事后想来，千思百感。</p>
+<p>一行出游三人，除了我好友，还有其大学社团的朋友小甲，当初也曾相伴而游，并不算太陌生。她是第二天的车，我们先到杭州。</p>
+<p>为方便，酒店靠近东站，我们拖着行李，安置好后忙不迭出门觅食。</p>
+<p>今年公历十月一对应农历八月十五，双节同天，一轮银白满月伴随着我们的脚步，踏在陌生城市的街道上。</p>
+<p>团圆聚餐的日子，餐厅人自然少不了，我们从人多吃到人少，各自生活与畅想，一如当年。</p>
+<h3 id="day-1">DAY 1</h3>
+<p>一觉睡到八点出头，赶九点东站接小甲。她来之前就博览网上游记，画了一幅杭游攻略，时间排的细，我们安置好行李就往地铁口去。</p>
+<p>南宋御街，逛逛吃吃，稍累在街上找了家电影院看刚上映的《姜子牙》，下午直奔西湖。湖边人比预想的多得多，本以为疫情之因，会少些。堵个不停的公路、挤满人头的断桥还是给我的想当然上了一课。但也无所谓啦，压一压湖中小道，留几张游客照，重要的是身边好友一同在，身前美景不胜收。</p>
+<p>计划是美好的，断桥残雪-白堤-平湖秋月-曲院风荷-苏堤-花港观鱼，最后到雷峰塔观日落。却是高估了步速，苏堤还未行一半，晚霞即已散满天。</p>
+<p>湖水荡漾晚风中，一片深蓝。苍穹暗淡，吹来远方的风，秋意在胸口升腾。一轮圆月忽跳出，斑驳的米黄带点暗红，侧下的雷峰塔发出淡淡的金光，相映成辉。</p>
+<p>朋友俩在一旁寻晚上饱腹之所，多少年的中秋之夜没好好观月的我，贪婪地凝望着异乡的月。不知是愈长大时间愈发快的原因，竟能肉眼观察到月亮在挪动。</p>
+<p>目标南山路，雷锋塔另一边。湖对岸的高楼霓虹闪烁，出园门的街游人如织，坐上公交车竟还有空座，很是幸运，当然，堵车在意料之中。</p>
+<p>杭帮菜。叫化童子鸡、西湖醋鱼、东坡肉……肉食大都还记得。口味方面轻咸一点甜，到很合我胃口。</p>
+<p>小甲约来其在杭州读书的表妹小乙，小乙白天上课，晚上才有时间出来。她学校又在市郊，这就是说，等她赶来的时候已经挺晚了。姐妹俩几年未会面，相见甚欢。</p>
+<p>一年明月今宵多，有酒不饮奈明何？</p>
+<p>我仍记得，那天回去时，头顶柔和明净的夜，窗外安静下来的城，和车里一路火热的乐。</p>
+<h3 id="day-2">DAY 2</h3>
+<p>小乙第二天一大早即匆匆赶回，课是不好意思翘的。我们休息到九点，小甲有些自责，昨晚两人回来后又叙一通，睡太晚了，小乙今儿白天怕是不太好过。</p>
+<p>龙井村-十里锒铛-九溪十八涧-九溪烟树，这便是接下来的计划。先预备乘车到山上，一路下行，可省些脚力。</p>
+<p>我看过地图，杭州城的地形还是很好玩的，中横一道江，西南湖边山。</p>
+<div align=center>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=569962512&auto=1&height=66"></iframe>
+</div>
+<p>倚坐在公交上，车沿着蜿蜒的柏油路盘山走，耳机中的音乐忽然同窗外古林格外地契合。曲子开头鸟鸣山间，连续的鼓点每一拍都好似对应一棵树，要将一段段往事演绎出来。几万年前的一片汪洋，如今漫山的郁郁葱葱。在这个平凡无奇而又极其巧合的某天午后，这些树木与我浮光掠影般打了个照面，此时此刻，我感觉像同时活在了过去和现在的时光里，我们从未见过，构成我们身体的元素也许更是来自于相距无限遥远的超新星爆发，但就在这个瞬间，我感到一种难以言说的联系感，虚无缥缈却真实存在。存在不需要计划，它在时间长河中流淌，遇见是偶然也是必然，存在无需修饰、无需坐标系，存在只是这个世界里这样一幅树与人的画面骤然出现又骤然消失，仅此而已。</p>
+<p>山上人家不少，路两边卖茶的也甚多。我们一路走，一路赏，一路聊，一路拍。群树掩映的山道，起起伏伏，风穿林叶，回旋荡漾，好似在欢迎远方的旅人，虽然下个瞬间就是永别，但这一秒，我听见了。</p>
+<p>我记得那天午后，山峦上空的风驱散了云，阳光洒下来，尽管只有零碎的光芒能穿越叶隙，密林深处原本氤氲着的薄雾仍慢慢散开，我啃一口手上的面包，默念：这多好啊。</p>
+<p>四时，钱塘江岸观潮起，五时，白塔公园车鸣笛，六时，餐厅门外等排位。<br>
+ <br>
+游戏之夜。</p>
+<p>实话讲，我上一次玩面对面桌游是好些年前的事了。科技方便了人与人间的联系，却可能在一定程度上阻碍更深入的交流。而成长像是一种循环，它不意味着一定要不停地放下。</p>
+<p>小乙诉说着白天的疲倦，我想不到什么可以安慰的话语，毕竟这是左右兼具不得的事儿，那句陈词滥调怎么说来着的，哦，这，就是生活。愈长大愈感亲情之可贵啊。</p>
+<p>生活里，我们的角色常常身不由己，游戏则给了我们向外展示的新可能，即使是暂时的，即使玩的不那么好，新的体验总能让我们愉悦，足够了。</p>
+<p>我仍记得，那天游戏结束后，楼外小雨正淅沥，湿润寒气从脚下升起，胸间却有一股暖热流向四肢百骸，混杂着兴奋与悲伤。回来后，我和好友聊至后半夜，回忆从前的自己、回忆初见的人们、回忆再回不去的时光。</p>
+<h3 id="分别">分别</h3>
+<p>计划里，最后一天上午逛灵隐寺及法喜寺。然而人多到需要提前预约时间，我又是赶中午的车，昨晚迟睡，起后计算了下时间，赶去赶回加午饭，实不足够，便不一道去了。</p>
+<p>早餐毕，拥抱，再见。</p>
+<p>见面到分别，时间快到不可思议。站在客房的落地窗前，我在想，下次会面又不知是何年月。</p>
+<p>楼前有几个孩子在追逐嬉闹，路过的旅者们拖着行李箱匆匆赶路，我望向刚从小雨转阴的天空，好似瞧见一轮火热的太阳。也许，时间从未变，只是我们这一生，都要奔跑。<br>
+ </p>
 
             </div>
             
@@ -469,7 +712,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://yangfana.top/post/jcyyqb/" title="角蟾与游骑兵">https://yangfana.top/post/jcyyqb/</a>
+      <a href="https://yangfana.top/post/hzxj/" title="杭州小记">https://yangfana.top/post/hzxj/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -478,23 +721,17 @@
   </ul>
   <div class="tags">
     
-      <a href="https://yangfana.top/tag/lnTLg8oVO/"># 读书</a>
-    
       <a href="https://yangfana.top/tag/n-m-AMDnz/"># 随笔</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="余生未来" href="https://yangfana.top/post/yswl/">余生未来</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="余生未来" href="https://yangfana.top/post/yswl/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="告别（一）" href="https://yangfana.top/post/2016gby/">告别（一）</a>
-        <a class="nav-mobile-next" title="告别（一）" href="https://yangfana.top/post/2016gby/">下一篇</a>
+        <a class="nav-pc-next" title="五月南风起" href="https://yangfana.top/post/hxos/">五月南风起</a>
+        <a class="nav-mobile-next" title="五月南风起" href="https://yangfana.top/post/hxos/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
