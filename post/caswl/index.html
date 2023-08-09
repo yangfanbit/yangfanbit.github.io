@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea，博客，粟一，随笔">
 <meta name="description" content="人间小行云">
 <meta name="theme-color" content="#000">
-<title>写给新的一年 | 一粟燃星</title>
+<title>此去《长安三万里》 | 一粟燃星</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1691602465423">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -44,8 +44,8 @@
 
 
 
-  <meta name="description" content="写给新的一年" />
-  <meta name="keywords" content="随笔" />
+  <meta name="description" content="此去《长安三万里》" />
+  <meta name="keywords" content="电影,随笔" />
 </head>
 
 <body>
@@ -189,7 +189,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -261,6 +262,197 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%94%9F%E6%B4%BB%E7%9A%84%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%8F%AF%E8%83%BD%E6%80%A7">生活的不确定性与可能性</a></li>
+<li><a href="#%E8%AF%97">诗</a></li>
+<li><a href="#%E7%BB%93%E8%AF%AD">结语</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -348,22 +540,34 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yfnwu.com/post/2019/">
-      写给新的一年
+    <a class="post-title-link" href="https://yfnwu.com/post/caswl/">
+      此去《长安三万里》
     </a>
   </h1>
   <div class="post-meta">
     
+    <span class="meta-item">
+      <i class="fa fa-thumb-tack"></i>
+      <span class="language" data-lan="top">置顶</span>
+      <span class="post-meta-divider">|</span>
+    </span>
+    
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-01-03 22:49:35">2020-01-03</span>
+      <span class="publish-time" data-t="2023-08-10 00:24:22">2023-08-10</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-folder-o"></i>
       <span class="pc-show language" data-lan="category-in">分类于</span>
+      
+      
+      <a href="https://yfnwu.com/tag/QpOSYGriJ/">
+        <span>电影</span>
+      </a>、
+      
       
       
       <a href="https://yfnwu.com/tag/n-m-AMDnz/">
@@ -376,25 +580,49 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>6<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>889<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1541<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>二零一九年风也似地过去了，新世纪的头二十年成为昨日，真让人有点不敢相信。在新年来临之际，本该说点儿展望未来，制订计划之类的事儿，但最近我总处在一种混乱的、难以剥离的思想状态中。到一个安静的环境，想想过去的一年。</p>
+              <p>我甚少去影院看动画，但听闻盛唐、诗人、诗词这几个描述，却是按耐不住。</p>
 <!-- more -->
-<p>回望过去，人最先记起的多是遗憾的事，如果当时，如果当时…这种心态尤其在我玩游戏时体现出来，一次次读档，追求完美同步。可人生哪是能存档暂离的游戏，每一秒都在向前，过去的永恒地过去了，再不能回头。我想，转换关注点该是更好的回忆方式，信息的解读往往比信息本身更重要。多多关注积极向上的事物，心态变易，美好事情也会关注你。</p>
-<p>于是我会想起，正月里家人围着一桌菜肴的热热闹闹，临走时田埂上破土而出的青葱小草，清明时淅淅沥沥的漫天烟雨；夏日里午后校园林间此起彼伏的声声蝉鸣，饭后擎一支雪糕划过炎日的自在放松，傍晚球场上浸透汗水的活力昂扬；秋虽短，每有木叶飘落，仰头凝望，以高远之空为底，如诗之画；正经冬，树虽眠而内蕴生机，外虽寒而内有暖气，大雪一纷飞，人间舞精灵，万物换颜，均若初见。身有五感而知觉，幸甚，幸甚！</p>
-<p>“如果星星每千年闪烁一次，我们都会仰视赞美这个世界的美丽，但是因为他们每天都在闪烁，我们将之视为理所当然。”</p>
-<p>今天在寝室嗅到舍友所带饭菜飘散出来的香味，忽记起我六七岁时，奶奶在老家火灶下洞口烤番薯的样子。灶上是个大铁锅，一般多是锅上炒菜时，奶奶顺手丢一两个番薯进洞，等几个菜炒好，番薯也就差不多熟了。出洞时薯表黑如炭，然剥开皮焦香四溢，那股混合了童年的食香，从不曾忘记，一闻见就能记起。</p>
-<p>转眼之间，我离开家乡求学已经快七年了。现今不若古时，交通便捷，通讯方便，倒很少时候心里烦忧离别之愁。大学毕业，求学之地从西北换到华北。生活趋向更平淡，求一些精神上的解答，与友联系，与家人交谈，虽常有世界第一难题之烦恼，但总体顺遂，平静无波。有闲情，鼓捣一些感兴趣的东西；有余暇，读读宇宙与星辰的想象作品。深感幸福之至，珍惜拥有一切，甚至于从每次别离中剖出一种浪漫来体味。当然，人生在世，如琴弦下流淌出的音符，要平缓，也要激昂，时而波澜不惊，时而澎湃汹涌。今年即是变化的一年，最终的毕业即将来临，六月盛夏将是新的起点。愿自己拥感恩之心，体验世间百态，短则短矣，活得真切方好。</p>
-<p>新年钟声余音未尽，我们又都长了一岁。对于过去这一年，对于已过这些年，总该有个结语：成长之路有阵痛也有欢愉，幸运的是，你仍可以在其中做出选择。</p>
+<p>这片子近三个钟头，不可谓不长。编剧以高适高节度使回忆与李白的几十年友谊的故事，穿插描绘了一副唐朝由盛转衰的历史画卷。画卷前半部分表现的不错，后半部分笔墨太少，稍差些意思。整体而言，光影设计、诗词配乐颇考究，除了情节冲突过于形式化，没有太不好的地方。</p>
+<p>电影方面的观感只如此，想聊聊别的。</p>
+<h2 id="生活的不确定性与可能性">生活的不确定性与可能性</h2>
+<blockquote>
+<p>世间至今有太多故事，人生活的可能性千姿百态。但当我面对这里面高适和李白的时候，发现可能性对于某个时期的特定人群来说，是一件很奢侈的东西。囿于时代和出身，他们所能面对的选择，相当之少。空有一番才华抱负，却寻路无门，无处施展。</p>
+</blockquote>
+<p>我以为对生活的热情（或者更基础：活着的动力），会有相当一部分来源于生活本身的不确定性。这种不确定性，正是我们希望的来源。所以当缺少不确定性的主观认知时，人容易滑向自我放逐的深渊。</p>
+<p>人成长的过程就是不确定性逐渐丧失的过程，生命中你能成为或拥有的东西都慢慢清晰起来，生活的可能性越来越少。当具体到某个时代时，我们发现，能拥有的不确定性很大程度在出生那一刻就被确定了，以至于出生现代觉得生活有无限可能的我（少年时代）看过去的高适李白等，瞅见的是一座座巨大的牢笼罩在他们身上，压得他们或于故土虚掷光阴、或于他乡声色犬马、或只寄情名山大川寻仙求道、或终日只求饱食安居而不能……</p>
+<p>纵观整部片子，那个时代的人中龙凤们，实现自我价值道路大多被局限于报效天子一途，具体操作步骤无非是科举、行卷、征辟、军功等方式的不同。这是时代强加于他们的确定性。</p>
+<p>譬如高适，青年时复兴高氏家族、沙场报国的志向确定了他生活就那么几个可能性，要么一荐功成，谋得一官半职度过余生；要么一身武艺，军中浮沉；要么什么都讨不到，黯然了却一生。当然，时代自有不确定性也会大大影响到个人，如果不是逢上安史乱世，他可能到死也就一个从八品。<br>
+再说李白，他的可能性相比高适是被削减的。既为商人之子，科举之路已被剔除。士农工商一分级，很多事情就被确定下来，走普通的行卷都难如登天。他要大鹏展翅，要翱于九天之上，何其难哉。不过家境不错且从小酷爱读书，诗文才华为他撬开了更多的可能性。尽管最终还是囿于求官和求道之间，但其诗的光芒已然冲破了时代。如此天纵之才方能取得些许，可见那个时代的普通人，其生活的确定性简直显而易见了。</p>
+<p>虽然坐在4K巨幕前的广阔大厅里，这些感觉却引发了我人生时空上的“幽闭恐惧症”。在此，我要下的定论也是显而易见了：<strong>只有在向着增加人类生活可能性的方向发展的文明，才是真正进步的文明。</strong></p>
+<h2 id="诗">诗</h2>
+<blockquote>
+<p>“写诗我喜欢，可是写诗人人都会啊”</p>
+</blockquote>
+<p>在大唐，诗是自我表达的载体，更是自我推销的介质。所以诗圈是非常之卷的，没有超人之才很难靠诗出名。</p>
+<p>李白在这个圈子是不世之材，普通人苦于寻章摘句、字字推敲，常常不如他三杯两盏酒的一气呵成。<br>
+他的诗，临摹现实的少，升华自己情绪的多。其狂放的思绪真正做到了遨于九天之上，摆脱生活的真实性，进入到理性无法触及的幻象之中。</p>
+<p>那一首《将近酒》的漫游幻象是影片最后的高潮，时空界限不再明晰，只知宇宙之大尽可去得。<br>
+万丈豪气将贯穿古今的共鸣喊了出来：<br>
+“……人生得意须尽欢……千金散尽还复来……钟鼓馔玉不足贵……惟有饮者留其名……与尔同销万古愁！”</p>
+<p>考虑到影片故事所讲之时，李白不可谓不处于人生之低谷。这首诗又可以做各种解读，怀才不遇的感叹也好、乐观通达的自我安慰也罢，甚至于说及时行乐的消极。<br>
+但当诗句穿风入耳时，其中万千气概绝不是这些前置解读可以盖过的，此时飞翔于脑海中的是以下一些神思：<br>
+“……对酒当歌……人生重于过程而非结果……浮生若梦……人终一死……莫待无花空折枝！”</p>
+<p>这绝不是消极，这是完美契合的酒神精神啊。</p>
+<p>曾经我问过自己，诗到底是什么？</p>
+<p>李白给了我一个答案：<strong>当人的不确定性渐渐坍缩后，诗是我们最终能得到的胜利。</strong></p>
+<h2 id="结语">结语</h2>
+<p>以上是我对电影本身之外一些浮想。几年前我在王小波的书看过一段论述，大体意思是影视作品由于篇幅很难表达一些深刻的东西，这往往是赋予小说的使命。现在，感觉可以有一点新思路，历史和文化共同体是集体的背景故事，当世界观不需要从新建立的时候，也许可以在电影有限的篇幅内表达一些更深层次的可能。</p>
 
             </div>
             
@@ -407,7 +635,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://yfnwu.com/post/2019/" title="写给新的一年">https://yfnwu.com/post/2019/</a>
+      <a href="https://yfnwu.com/post/caswl/" title="此去《长安三万里》">https://yfnwu.com/post/caswl/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -416,21 +644,19 @@
   </ul>
   <div class="tags">
     
+      <a href="https://yfnwu.com/tag/QpOSYGriJ/"># 电影</a>
+    
       <a href="https://yfnwu.com/tag/n-m-AMDnz/"># 随笔</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="博客搭建及优化教程汇总" href="https://yfnwu.com/post/blogdiy/">博客搭建及优化教程汇总</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="博客搭建及优化教程汇总" href="https://yfnwu.com/post/blogdiy/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="刺激与拖延" href="https://yfnwu.com/post/cjyty/">刺激与拖延</a>
-        <a class="nav-mobile-next" title="刺激与拖延" href="https://yfnwu.com/post/cjyty/">下一篇</a>
+        <a class="nav-pc-next" title="像云像雾又像闪电" href="https://yfnwu.com/post/hxs01/">像云像雾又像闪电</a>
+        <a class="nav-mobile-next" title="像云像雾又像闪电" href="https://yfnwu.com/post/hxs01/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
