@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yfnwu.com</id>
     <title>一粟燃星</title>
-    <updated>2024-11-29T08:34:47.860Z</updated>
+    <updated>2024-11-29T08:53:18.313Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yfnwu.com"/>
     <link rel="self" href="https://yfnwu.com/atom.xml"/>
@@ -394,6 +394,21 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[《罪与罚》临记]]></title>
+        <id>https://yfnwu.com/post/zyf/</id>
+        <link href="https://yfnwu.com/post/zyf/">
+        </link>
+        <updated>2023-09-10T15:47:09.000Z</updated>
+        <summary type="html"><![CDATA[<p>刚刚读完罪与罚最后一卷的第六章，写 xx 是怎么一步一步走向了死亡。可以说是目前为止给我留下最深刻印象的一节了，简直是活生生的人要从故事里蹦出来一样。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>刚刚读完罪与罚最后一卷的第六章，写 xx 是怎么一步一步走向了死亡。可以说是目前为止给我留下最深刻印象的一节了，简直是活生生的人要从故事里蹦出来一样。</p>
+<!-- more -->
+<p>他在做出自杀决定的线索之前就已埋下，在这个雨夜，他坚定了抉择。去死。结束他那无意义得不到的无趣生命。<br>
+他在某种程度可以说是善良，连在做噩梦时都在帮助小女孩儿。他把自己描绘得不堪，超出了他行为本身。</p>
+<p>等到读完后，我要先重读这一个章节，写写全面的想法。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[此去《长安三万里》]]></title>
         <id>https://yfnwu.com/post/caswl/</id>
         <link href="https://yfnwu.com/post/caswl/">
@@ -607,53 +622,6 @@ ps: 小立一个FLAG，近期慢慢恢复更新，生活这首歌即将变奏~</
 <hr>
 <p>《超能查派》，人工智能是个具有学习能力的人类幼崽。《失控玩家》则未提及其智能模式，形式上是个掉入日常重复生活模式的中年人。《超验骇客》则让人工智能纯粹是个思考和计算的工具，在人类的意识主导下，才有了主观能动性。</p>
 <center>最后更新时间：2023年07月04日00:22:18</center>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[图床搭建（阿里云OSS+PicGo）]]></title>
-        <id>https://yfnwu.com/post/tcdj/</id>
-        <link href="https://yfnwu.com/post/tcdj/">
-        </link>
-        <updated>2022-06-26T04:05:20.000Z</updated>
-        <summary type="html"><![CDATA[<p>一直用的SM.MS，体验还不错。加载慢，不过图少，就没在意。但这次站点迁移，买了阿里云OSS服务，本着不用白不用的原则，重新搭个图床。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>一直用的SM.MS，体验还不错。加载慢，不过图少，就没在意。但这次站点迁移，买了阿里云OSS服务，本着不用白不用的原则，重新搭个图床。</p>
-<!-- more -->
-<h2 id="阿里云oss开通">阿里云OSS开通</h2>
-<p>网站：<a href="https://www.aliyun.com/">阿里云</a></p>
-<p>路径：产品 —— 存储 —— 基础存储服务 —— 对象存储OSS</p>
-<img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/bcecb15754b1811c9884a72d2cf5c005.png" width="50%" height="50%">
-<p>立即开通，确认即可</p>
-<p>折扣套餐40GB一年9元，相当划算。否则按流量计费，也不是很贵。</p>
-<h2 id="创建bucket">创建Bucket</h2>
-<p>控制台进入对象存储OSS</p>
-<figure data-type="image" tabindex="1"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626121453709.png" alt="image-20220626121453709" loading="lazy"></figure>
-<p>点击创建Bucket</p>
-<img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626121846205.png">
-<p>注意读写权限 改为 <strong>公共读</strong> 即可</p>
-<p>点击确定，创建完成</p>
-<h2 id="创建用户">创建用户</h2>
-<p>访问控制</p>
-<img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626122449764.png" width="50%" height="50%">
-<p>创建用户</p>
-<figure data-type="image" tabindex="2"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626123011906.png" alt="image-20220626123011906" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626123106883.png" alt="image-20220626123106883" loading="lazy"></figure>
-<p>点击确定，手机验证下就可以通过了（<strong>记住ID和Secret</strong>）</p>
-<p>还有一步添加权限</p>
-<figure data-type="image" tabindex="4"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626123326672.png" alt="image-20220626123326672" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626123447979.png" alt="image-20220626123447979" loading="lazy"></figure>
-<p>点击确定即可</p>
-<h2 id="配置picgo">配置PicGo</h2>
-<p>下载PicGo</p>
-<p>图床设置选择阿里云OSS</p>
-<p>红框内必填（注意：复制ID和Key时，前面要检查<strong>无空格</strong>）</p>
-<figure data-type="image" tabindex="6"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626123904136.png" alt="image-20220626123904136" loading="lazy"></figure>
-<p>确定并设为默认图床</p>
-<p>配置完成</p>
-<h2 id="配置typora">配置Typora</h2>
-<p>很多朋友用Typora写作，为方便可直接在偏好设置里选择PicGo上传图片，可以自动转换链接</p>
-<figure data-type="image" tabindex="7"><img src="https://yfpicgo.oss-cn-hangzhou.aliyuncs.com/img/image-20220626125933945.png" alt="image-20220626125933945" loading="lazy"></figure>
-<p>ps: “上传服务”也可选“PicGo-Core(command line)”，会少占计算资源（已有APP，故未尝试）</p>
 ]]></content>
     </entry>
 </feed>

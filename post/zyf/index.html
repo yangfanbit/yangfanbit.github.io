@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea，博客，粟一，随笔">
 <meta name="description" content="人间小行云">
 <meta name="theme-color" content="#000">
-<title>养鸭往事（四） | 一粟燃星</title>
+<title>《罪与罚》临记 | 一粟燃星</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1732870395020">
 <link rel="stylesheet" href="/media/css/mist.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -44,8 +44,8 @@
 
 
 
-  <meta name="description" content="养鸭往事（四）" />
-  <meta name="keywords" content="收藏,读书" />
+  <meta name="description" content="《罪与罚》临记" />
+  <meta name="keywords" content="读书" />
 </head>
 
 <body>
@@ -193,8 +193,7 @@
       <div class="sidebar-body mist" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -253,197 +252,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E8%99%BE">虾</a></li>
-<li><a href="#%E5%9F%83%E5%8F%8A%E9%B1%BC">埃及鱼</a></li>
-<li><a href="#%E8%BF%99%E4%BA%9B%E5%B9%B4">这些年</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -531,8 +339,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yfnwu.com/post/yyws4/">
-      养鸭往事（四）
+    <a class="post-title-link" href="https://yfnwu.com/post/zyf/">
+      《罪与罚》临记
     </a>
   </h1>
   <div class="post-meta">
@@ -540,19 +348,13 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2024-11-24 17:16:33">2024-11-24</span>
+      <span class="publish-time" data-t="2023-09-10 23:47:09">2023-09-10</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-folder-o"></i>
       <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://yfnwu.com/tag/lRbLWkVChV/">
-        <span>收藏</span>
-      </a>、
-      
       
       
       <a href="https://yfnwu.com/tag/lnTLg8oVO/">
@@ -565,17 +367,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>11<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>3280<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>178<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/yyws4/" data-flag-title="养鸭往事（四）" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/zyf/" data-flag-title="《罪与罚》临记" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -584,81 +386,11 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>前些日子，我又回到了那个水库。</p>
+              <p>刚刚读完罪与罚最后一卷的第六章，写 xx 是怎么一步一步走向了死亡。可以说是目前为止给我留下最深刻印象的一节了，简直是活生生的人要从故事里蹦出来一样。</p>
 <!-- more -->
-<p>我在大水推开的沙地那里，发现了一个乱葬岗。这里曾埋了超过十万个鸭子，包括还没断气的。<br>
-当时工作量太大，那些工人也力不从心，每天都要埋几千个，只能浅浅地埋了。</p>
-<p>这个曾经的灾难现场，长满了青草和野花，有蝴蝶在翩翩。<br>
-大自然抚平了一切。<br>
-但我依稀觉得满目苍凉。<br>
-我听见了鸭子，它们成群结队，我看见站着的鹤子，伏着的豹猫要随时出击。我听见表弟在说，今晚又烤鱼好不好。但曾经的棚子已经倒塌了，被攀爬植物覆盖，我看见几个蜥蜴惊慌失措，它们都很久没见过人类。</p>
-<p>在棚子的对面，低下去的地方，长满了野草，能有人的胸口高。但我知道下边应该有积水，说不定还有一些大虾笼。<br>
-曾经这是一个鱼种塘。当时我和表弟偷了专业捉虾人的笼子，把虾倒出来，来这里捉虾。但吃了大半个月，见到虾都非常害怕，所以最后一次放虾笼时，再也没有收上来。</p>
-<h2 id="虾">虾</h2>
-<p>那些水库和鱼塘，经常会有专业捉虾人光临，和主人商量捉虾的事儿。在我从事养殖业的近二十年里，看到虾从四块钱涨到十二块钱，现在说不定已经更多了。</p>
-<p>他们开着水车，打着氧气，把虾拉到几百公里外的大城市里。甚至用上干冰，空运到一千多公里外。价格也会涨十倍以上。</p>
-<p>大货车拉来了数千个虾笼，用绳子连在一起，绕了几百亩的水边。一同来的还有一些工人，他们在太阳落山的时候开始下笼，在太阳出来之前收笼。</p>
-<p>最开始那几年，我是非常欢迎捉虾人的，除了可以有些额外的收入，也每每都会要求留十几斤虾给我。有时笼里闯入了些大青蛙之类，我也一定要叫他们留给我，他们也非常乐意。</p>
-<p>有一次，在大坝基上，工人的老板陪着我聊天，我看着那些工人下完笼子后，拿一桶水冲了些东西，绕着水库泼。我问那是什么，老板说是饵。我问是什么配方，老板只是神秘一笑。我叫他留一些饵给我，不肯。</p>
-<p>但他低估了我的好奇心，我暗里观察了几天，发现工人把饵的包装藏在老鼠洞里，或用土填埋。我偷偷挖出来。草甘磷，百草枯。<br>
-我马上打电话骂，你放这些可怕的东西为什么不告诉我！每次我叫你留十几斤给我吃，你还笑呵呵的答应了！答，量很少，毒不死你，中国比这毒的多了去了。又解释说，每瓶农药都要分几次用，水库这么大这么多水，都不知道稀释到什么程度了，吃到虾肚子里的又有多少，吃到你肚子里的又有多少？</p>
-<p>我一听果然有道理，立即偷了他几十个虾笼，拿到水库上面的鱼种塘慢慢捉。不放药的每一个笼只能捉一两左右，但可以每天捉。放药的每一个笼可以捉几斤，但把虾药坏了，连着捉几天后，下次捉要隔三个月。<br>
-为什么药不了鱼？因为鱼感觉不对劲，马上到深水了，而虾一直在浅水。虾中毒了，晕乎乎的整晚乱转，就转到笼里了。</p>
-<p>笼子都摆在水边很浅的地方，所以鸭子小于四斤的时候是不能下笼子的。因为鸭子看见笼里的虾，会钻进去吃，最后闷死在里面。笼子的设计是进去了不能再出来，除非由人类在后面把绳子解开。<br>
-所有的动物都有不解绳子。包括但不限于水鸡，蛇，青蛙，黄鳝，黑鱼，埃及鱼之类，它们看到笼里有很多虾，都会想方设法地钻进去，害得我们不停地开发出新的美食方案。</p>
-<h2 id="埃及鱼">埃及鱼</h2>
-<p>我觉得淡水鱼里埃及是很聪明的，它们有组织有纪律，成千上万，成群结队，把小鱼从深处赶到浅水，包围，然后一起发出声音跳出水面，小鱼惊慌失措，也跟着跳出水面。<br>
-但问题是它们跳出水面时是张着嘴巴的，小鱼会落到它们嘴里，而且它们是跳出一半，小鱼是完全跳出来。我第一次看到时，是有点吃惊的，这种现象估计还没什么动物学家发现呢。无论是养鱼还是养鸭的人都非常讨厌埃及鱼。</p>
-<p>这是一种外来的鱼类，能长到一百多斤。在水里见什么就吞什么。但就算这样，它依然是无害的。除非我们打破了平衡。<strong>当我们说一样东西是害虫时，其实问题在出我们的身上，是我们打破了大自然的平衡。</strong></p>
-<p>我们养殖业的，都希望水里除了我们下的鱼苗外，再也没有其它鱼。因为其它杂鱼只会占用宝贵的空间，不能产生什么经济利益。有一次放少了水，反复拖网装车后，我决定把水里残存的鱼全杀光，然后下新的鱼苗。我打电话拉来了一车茶粕，茶粕是山茶子榨油后的东西，对人是无害的，对鱼致命，但必须用较大的量。有环保心理的人会用十万元的茶粕，无环保心理的人会用小几千元的农药。</p>
-<p>但我没想到，此举发生了大灾难，造成了这个水库不能养鱼或养鸭。</p>
-<p>一些埃及鱼钻到了深层的淤泥里，躲过了茶粕。来年春水的时候，它们游到近岸的水草里排卵。一个埃及鱼一次可以繁殖几百万个。如果是平时，这也不算什么，因为会有很多杂鱼把卵吞光，说不定十万个卵都存活不了一个。<br>
-但茶粕把杂鱼杀光了。<br>
-每个卵不久就变成一个埃及鱼。在我下了几车鱼苗后，它们马上把鱼苗吃光。<br>
-等它们长大一点了，鸭苗下水，它们也吞。有一次我下了三万个鸭苗，整晚听到水里碰碰地响。第二天只剩几百个缩在水边，怎么赶都不敢下水。<strong>从此它们似鸡一样在陆地生活。</strong></p>
-<p>我非常生气，马上叫来了三十多个工人，开始拖网，但埃及鱼非常聪明，会潜到水底，甚至淤泥里。每网只拖起几百斤笨的，还不够给工资。</p>
-<p>我又叫来了更专业的工人，大肆采购一番，开始装地网。拉来了一车饲料，在地网的正上方每天准时投料。埃及鱼也每天准时聚餐。大半个月后，水库的埃及鱼集合得差不来了，我按下了机器的开关，地网缓缓收起，埃及鱼一个也跑不了，装了七车。</p>
-<p>从此我明白了平衡的道理，会下意识的保留一些杂鱼。</p>
-<h2 id="这些年">这些年</h2>
-<p>除了人喜欢听歌外，鸭也喜欢听歌的。<br>
-把鸭苗倒下水的时候，就要在投料的地方放歌，无论鸭子游得再远，听到歌都会回来。鸭苗的前几天是很辛苦的，因为它容易失温，会在一起挤着取暖，叠了多层。底层的不一会儿就闷死一大片。<br>
-如果是不超过三万个，可以用几百个纸箱把它们装起来，再把纸箱叠起来。但如果超过三万个，你就只能守夜了。因为太多了你装完的时候刚好天亮，天亮了又要马上放出来，这没有任何意义。</p>
-<p>所以进鸭苗的前几天都折磨人，但几天后，就相当轻松了。<br>
-有一段时间表弟来水库里避难，我叮嘱工人加料后，就可以节目不断了。<br>
-我们去起了虾笼，我说要盐焗，他说要椒盐，最后我们一个做了几斤盐焗，一个做了几斤椒盐。<br>
-在资源充足的情况下，意见相左也不会产生矛盾。<br>
-吃饱了休息一会，然后就饿了，我们就去市场上买各种各样的食材，做出各种各样的人间美味。</p>
-<p>有一次我们上山挖了牛大力，就去市场上买猪脚来煮汤。<br>
-当我问到一个猪脚只要八块钱后，马上就不干了。<br>
-我说，你不要骗我，猪脚怎么可能这么便宜，三十块钱你买不买？<br>
-对方忙不迭的答应了。</p>
-<p>回来的路上，我还是觉得不可思议，又打了几个电话。<br>
-他们说，现在大肉猪二块一斤还要求人家来拉，至于小猪，二十元一个都没人敢养，村头路口丢得到处都是。<br>
-我说，我不信我不信，我不听我不听，除非你马上拉几车小猪来给我看看，我出三十元一个，有多少就要多少。<br>
-他们乐不可支，满口答应下来。<br>
-很快车们就排着队过来了，我直接把猪丢在鸭场里，随便它们下水库或上山。我也给它们听歌，歌一响就是开饭时间。那些猪从四面八方冲过来，扯嗓子猛叫，把所有鸭子都吓到水里。<br>
-两个多月后，同样那些人打电话来求我给他们拉走，说什么现在三十元一斤了。<br>
-我说，我不信我不信，我不听我不听。除非你们答应我二十八元一斤，这些猪吓坏了我的鸭子，限你三天内把它们都拉去，我不要再见到它们。</p>
-<p>过后，我疯狂扩张养殖场，多个场地同时开工。<br>
-不太久的一天，我看见了武汉的新闻，我不以为然。<br>
-但几天后，肉鸭由7元一斤掉到5毛钱。并且到处封路。鸭拉不出去，料拉不入来。聪明的鸭子组团去逃荒的了，听说附近十几个村庄，每家每户都有几十几百个鸭子不等。<br>
-那段时间一直有一个传言，说鸭子会从村口的道路走来，从天而降。</p>
-<p>那些笨鸭，原地饿死，工人也埋不了这么多，个个叫苦连天。我说，你们解脱了，放假。还活着的我也不要了，眼不见为净。这句话传出去，村民赶集一样过来，当离开的时候，养殖场分外干净，甚至有村民要把鸭屎扒回去做肥。</p>
-<p>后来，大堆村民似蝗虫一样凭空出现，抬所有抬得动的，拆所有抬不动的，包括新场的所有设施。因为传言已经变成，老板什么都不要了，东西随便拿。</p>
-<p>我看着他们欢喜地把东西们搬走，有一种说不出的冷静。我想起了这些年的种种经历，种种奋斗。</p>
-<p>我想笑。</p>
-<p><strong>各种各样的哲学通常与幸福无缘，人们都是不幸的时候才摇身成为哲学家。</strong></p>
-<p>其中医院住院部的最多，每个人都在深思，脸孔上写着哲理。</p>
-<p>有一次我用几个晚上拜访了肿瘤科的所有患者，这些晚期病人个个是哲学大家，令我心悦诚服。<br>
-有一个老男人富甲一方，儿女成群。在十点前儿女们一哄而散，剩他静静的躺在床上。<br>
-我进来陪他聊天，他喜欢望天花板，他说，我已经看透了，老了什么都是没用的，钱没用，儿子多也没用，人生就是这样，年轻的时候能吃就多吃点吧。<br>
-我说你儿子不是很孝顺吗，天天来看你，还带了这么多水果，实不相瞒我就是相中了你的水果，你不吃给我都吃光了你意下如何？<br>
-他说，儿子们天天示好是为了争家产，水果是硬的他咬不动，没有一个儿子问他痛不痛。<br>
-我陪他聊到了凌晨，他分外满足的看着我猛吞水果。</p>
-<p>我的病房在下面几层，是骨科。<br>
-我是骨科里的异类。他们大多是车祸送来的，只有我是玩小朋友的滑轮鞋。我说了，他们还不信，用眼睛看我。<br>
-那天我在公园散步，看见一班小朋友在玩滑轮鞋，他们无忧无虑，我非常羡慕，我说，小朋友给叔叔玩玩可好？<br>
-……</p>
+<p>他在做出自杀决定的线索之前就已埋下，在这个雨夜，他坚定了抉择。去死。结束他那无意义得不到的无趣生命。<br>
+他在某种程度可以说是善良，连在做噩梦时都在帮助小女孩儿。他把自己描绘得不堪，超出了他行为本身。</p>
+<p>等到读完后，我要先重读这一个章节，写写全面的想法。</p>
 
             </div>
             
@@ -671,7 +403,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://yfnwu.com/post/yyws4/" title="养鸭往事（四）">https://yfnwu.com/post/yyws4/</a>
+      <a href="https://yfnwu.com/post/zyf/" title="《罪与罚》临记">https://yfnwu.com/post/zyf/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -680,19 +412,21 @@
   </ul>
   <div class="tags">
     
-      <a href="https://yfnwu.com/tag/lRbLWkVChV/"># 收藏</a>
-    
       <a href="https://yfnwu.com/tag/lnTLg8oVO/"># 读书</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="养鸭往事（一）" href="https://yfnwu.com/post/yyws1/">养鸭往事（一）</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="养鸭往事（一）" href="https://yfnwu.com/post/yyws1/">上一篇</a>
+      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="养鸭往事（三）" href="https://yfnwu.com/post/yyws3/">养鸭往事（三）</a>
-        <a class="nav-mobile-next" title="养鸭往事（三）" href="https://yfnwu.com/post/yyws3/">下一篇</a>
+        <a class="nav-pc-next" title="此去《长安三万里》" href="https://yfnwu.com/post/caswl/">此去《长安三万里》</a>
+        <a class="nav-mobile-next" title="此去《长安三万里》" href="https://yfnwu.com/post/caswl/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
