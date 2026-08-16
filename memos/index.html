@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+
+<meta name="keywords" content="博客，粟一，随笔">
+<meta name="description" content="一粟燃星，人间小行云。个人独立博客，记录技术思考、阅读笔记、生活随笔与数字花园里的日常碎片。">
+
+<meta name="theme-color" content="#000">
+<meta property="og:image" content="https://yfnwu.com/post-images/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://yfnwu.com/post-images/og-cover.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+<meta name="generator" content="Gridea Pro 1.2.2">
+<title>闪记 | 一粟燃星</title>
+<link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="">
+<link rel="shortcut icon" href="/favicon.ico?v=1786896952">
+<link rel="stylesheet" href="/media/css/gemini.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+
+<link href="/media/hljs/styles/androidstudio.css"
+  rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="/media/js/busuanzi.pure.mini.js"></script>
+
+<script src="/media/js/jquery.js"></script>
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous"
+  media="print" onload="this.media='all'">
+
+<script defer src="https://fastly.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://fastly.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+  <style>
+    .memos-section { padding: 30px 36px; }
+    .memos-title { font-size: 26px; margin-bottom: 8px; font-weight: 600; }
+    .memos-subtitle { font-size: 14px; color: #888; margin-bottom: 24px; }
+
+    /* 热力图 */
+    .heatmap-wrap { margin-bottom: 30px; }
+    .heatmap-title { font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #555; }
+    .heatmap-scroll {
+      overflow-x: auto;
+      scrollbar-width: none;  /* Firefox */
+      -ms-overflow-style: none;  /* IE/Edge */
+      padding-bottom: 4px;
+    }
+    .heatmap-scroll::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
+    .heatmap-grid { display: flex; gap: 3px; min-width: min-content; }
+    .heatmap-col { display: flex; flex-direction: column; gap: 3px; }
+    .heatmap-cell {
+      width: 14px; height: 14px; border-radius: 3px;
+      background: #ebedf0; transition: transform .15s;
+      cursor: pointer;
+    }
+    .heatmap-cell:hover { transform: scale(1.5); }
+    .heatmap-cell.lvl1 { background: #c6e48b; }
+    .heatmap-cell.lvl2 { background: #7bc96f; }
+    .heatmap-cell.lvl3 { background: #239a3b; }
+    .heatmap-cell.lvl4 { background: #196127; }
+    .heatmap-legend {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: #999; margin-top: 8px; justify-content: flex-end;
+    }
+    .heatmap-legend .heatmap-cell { width: 11px; height: 11px; cursor: default; }
+    .heatmap-legend .heatmap-cell:hover { transform: none; }
+
+    /* 闪念卡片 + 时间线 */
+    .memos-list {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-left: 32px;
+    }
+    .memos-list::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: #ebedf0;
+    }
+    .memo-card {
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: box-shadow .3s, transform .3s;
+    }
+    .memo-card::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 32px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #f38181;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+      transition: transform .3s;
+      z-index: 1;
+    }
+    .memo-card:hover::before { transform: scale(1.25); }
+    .memo-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      transform: translateY(-2px);
+    }
+    .memo-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .memo-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid #f0f0f0; object-fit: cover;
+    }
+    .memo-author { font-weight: 600; font-size: 15px; color: #333; }
+    .memo-date { font-size: 12px; color: #999; margin-top: 2px; }
+    .memo-content { line-height: 1.8; color: #444; word-wrap: break-word; }
+    .memo-content p { margin: 0 0 10px; }
+    .memo-content p:last-child { margin-bottom: 0; }
+    .memo-content img {
+      max-width: min(420px, 100%);
+      max-height: 260px;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 10px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      display: block;
+      cursor: zoom-in;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .memo-content img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+    }
+    .memo-content img.full {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      max-width: 90vw;
+      max-height: 90vh;
+      z-index: 1000;
+      cursor: zoom-out;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+    .memo-tags { display: none; }
+    .memo-empty { text-align: center; color: #999; padding: 40px 0; }
+
+    /* 年份分割线 */
+    .memo-year-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 6px 0 4px;
+      color: #c0c0c0;
+    }
+    .memo-year-divider::before,
+    .memo-year-divider::after {
+      content: '';
+      flex: 1 1 auto;
+      height: 1px;
+      background: linear-gradient(to right, rgba(0,0,0,.04), rgba(0,0,0,.10), rgba(0,0,0,.04));
+    }
+    .memo-year-divider span {
+      flex: 0 0 auto;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #b0b0b0;
+      padding: 3px 14px;
+      border-radius: 999px;
+      background: #f5f5f7;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+    }
+
+    /* 年份快捷导航（吸顶）+ 加载更多 */
+    .memo-hidden { display: none !important; }
+    .memo-year-nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 20px;
+      padding: 10px 12px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .memo-year-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #888;
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #f5f5f7;
+      transition: color .2s, background .2s;
+    }
+    .memo-year-link:hover { color: #f38181; background: #fdeaea; }
+    .memo-year-link.active { color: #fff; background: #f38181; }
+    .memo-loadmore {
+      display: block;
+      margin: 24px auto 8px;
+      padding: 10px 28px;
+      font-size: 14px;
+      color: #555;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: color .2s, border-color .2s;
+    }
+    .memo-loadmore:hover { color: #f38181; border-color: #f38181; }
+
+    @media (max-width: 768px) {
+      .memos-section { padding: 20px 16px; }
+      .memo-card { padding: 16px; }
+      .memos-list { padding-left: 22px; }
+      .memos-list::before { left: 9px; }
+      .memo-card::before { left: -19px; top: 28px; }
+      .heatmap-cell { width: 11px; height: 11px; }
+      .memo-year-nav { padding: 8px; gap: 6px; margin-bottom: 16px; }
+      .memo-year-link { padding: 3px 10px; font-size: 12px; }
+    }
+  </style>
+<meta name="description" content="人间小行云">
+<meta name="keywords" content="博客，粟一，随笔">
+<link rel="canonical" href="https://yfnwu.com/memos/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"一粟燃星","url":"https://yfnwu.com","description":"人间小行云","potentialAction":{"@type":"SearchAction","query-input":"required name=search_term_string","target":"https://yfnwu.com/search?q={search_term_string}"}}</script>
+<meta property="og:title" content="一粟燃星">
+<meta property="og:description" content="人间小行云">
+<meta property="og:url" content="https://yfnwu.com/memos/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="一粟燃星">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://yfnwu.com/memos/">
+<meta name="twitter:title" content="一粟燃星">
+<meta name="twitter:description" content="人间小行云">
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="gemini">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>一粟燃星</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">几时心绪浑无事，得及游丝百尺长</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/memos/" target="_self">
+                  <i class="fa fa-commenting-o"></i> 闪念
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/patraining/" target="_self">
+                  <i class="fa fa-line-chart"></i> 复盘
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="https://sleep.yfnwu.com//" target="_blank">
+                  <i class="fa fa-moon-o"></i> 睡眠
+                </a>
+              
+            </li>
+          
+          
+          
+            <li id="fa_search" class="nav-item">
+              <button type="button" aria-label="搜索">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </button>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    // P2-6: 不再硬编码 children.length * 42px；展开高度由 CSS .site-nav.nav-menu-active 的 max-height 控制
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout gemini ">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">粟一</p>
+    
+    <div class="site-description right-motion">
+      
+        <p id="binft">  人间小行云</p>
+      
+    </div>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        <span id="articleCount" class="site-item-stat-count">—</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span id="tagCount" class="site-item-stat-count" data-default="11">11</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://yfnwu.com/atom.xml" target="_blank" rel="noopener">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          <a href="mailto:yangfannwu@126.com" target="_blank" rel="noopener">
+            <i class="fa fa-envelope" title="邮箱"></i>
+          </a>
+        
+          <a href="https://book.douban.com/people/123280920/" target="_blank" rel="noopener">
+            <i class="fa fa-book" title="豆瓣"></i>
+          </a>
+        
+        
+      </div>
+    </div>
+  
+
+  
+
+
+
+</div>
+</div>
+        <div class="section-box gemini box-shadow-wrapper">
+          <section class="memos-section bg-color slide-down-in">
+            <h1 class="memos-title">闪念</h1>
+            <p class="memos-subtitle">那些不值得长篇大论，但值得记一笔的瞬间。</p>
+
+            
+
+              <div class="memo-year-nav" id="memoYearNav"></div>
+
+              <div class="heatmap-wrap">
+                <div class="heatmap-title">最近一年的闪念热力</div>
+                <div class="heatmap-scroll">
+                  <div class="heatmap-grid" id="memosHeatmap"></div>
+                </div>
+                <div class="heatmap-legend">
+                  <span>少</span>
+                  <div class="heatmap-cell"></div>
+                  <div class="heatmap-cell lvl1"></div>
+                  <div class="heatmap-cell lvl2"></div>
+                  <div class="heatmap-cell lvl3"></div>
+                  <div class="heatmap-cell lvl4"></div>
+                  <span>多</span>
+                </div>
+                <script type="application/json" id="memosHeatmapData">
+                  [{"date":"2026-08-09"},{"date":"2025-03-27"},{"date":"2025-03-25"},{"date":"2025-03-25"},{"date":"2025-03-16"},{"date":"2025-03-16"},{"date":"2025-03-14"},{"date":"2025-03-13"},{"date":"2023-12-20"},{"date":"2023-04-06"},{"date":"2023-04-05"},{"date":"2022-08-20"},{"date":"2022-06-08"},{"date":"2022-05-28"},{"date":"2022-02-28"},{"date":"2022-02-24"},{"date":"2022-02-07"},{"date":"2021-11-08"},{"date":"2021-04-20"},{"date":"2019-12-08"},{"date":"2019-10-05"},{"date":"2019-05-10"},{"date":"2017-01-14"},{"date":"2015-09-28"},{"date":"2015-09-22"},{"date":"2015-09-17"},{"date":"2015-09-09"},{"date":"2015-09-07"}]
+                </script>
+              </div>
+
+              <div class="memos-list">
+                
+                
+                  
+                  <div class="memo-year-divider" id="memo-year-2026" data-batch="0"><span>2026</span></div>
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2026-08-09</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>这次博客优化花了两周，包括主题改造和数据迁移以及所有能想到的访问体验优化。<br />
+AI辅助下，修改确实太简便了，然而欲望也不断攀升，本末倒置不可避免地出现（尽管之前也有，但不会这么极端）。<br />
+优化工具的使用和呈现，对于读书、写作的权重给的太低，手段变成目的，这是短期的必然，但不能一直如此。<br />
+开始挑战周更9篇，不管是改以前的，还是新写，内容形式不限。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider" id="memo-year-2025" data-batch="0"><span>2025</span></div>
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-27</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>Day2！<br />
+现在关机，预备十一点四十五躺倒。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-25</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>页面改了两个小功能，花了一个多小时。现在洗漱，保证十二点躺倒。<br />
+Day1！<br />
+<img src="https://s2.loli.net/2025/03/25/IghXoraGkw8ndcF.jpg" alt="" /></p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-25</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>兜兜转转，还是回到了 NexT 主题。<br />
+期间摹仿开发了两个新主题 MyDiary 和 ArtPlus，但总觉得哪里不太得劲。<br />
+当然，不止如此，把之前的“粟一碎碎念”一页，改成了现在的“说说”页。<br />
+不得不说，有了Ai的帮助，做简单的前端调整实在是太方便。感觉像是玩游戏一样上瘾，反馈非常及时。<br />
+至此，这方面折腾告一段落，专注于睡眠计划的完成吧，今天开始打卡，重启3天计划。<br />
+具体如下：<br />
+十一点半务必躺倒，手机等电子产品禁止进入卧室。七点半起床。（考虑加班情况）<br />
+GO!</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-16</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>打卡Day1，刚刚复盘完，12点前保证今天休息。👨‍💻</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-16</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>打卡Day2宣告失败，加了一天班回来，实在不想这么早上床，磨过了十点，刷小红书……你的失败将被记录，待新的尝试。就在今天。周日、周一、周二，重新开始。我就不信了。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-14</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>打卡Day1，现在是2025年03月14日21:02:22，今天预备十点上床看书，不再碰手机电脑，早睡第一天。第一个任务是坚持3天，也就是周五、周六、周天。没有工作压力借口，发布完就去洗漱。<br />
+所有优先级，睡眠第一位。<br />
+西西弗斯一下子就把石头推到了山顶！</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2025-03-13</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>近期启动更新，《养鸭往事》于知乎搜索整理，原作者黄旭（账号已转卖）。列表中隐藏，文章链接如下：<br />
+<a href="https://www.yfnwu.com/post/yyws1/">养鸭往事（一）</a><br />
+<a href="https://www.yfnwu.com/post/yyws2/">养鸭往事（二）</a><br />
+<a href="https://www.yfnwu.com/post/yyws3/">养鸭往事（三）</a><br />
+<a href="https://www.yfnwu.com/post/yyws4/">养鸭往事（四）</a></p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider" id="memo-year-2023" data-batch="0"><span>2023</span></div>
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2023-12-20</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>what am I doing!<br />
+我现在都是在干什么啊，只是凭情绪的引导活着。理性让我明白事情该如何去做，但追求简单与舒适的身体都在做些什么啊，你看看现在几点了。<br />
+但是的但是，今天你只要十一点闭眼睡觉，今天就是胜利的。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2023-04-06</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>这个世界是一场梦境。<br />
+这个梦境如此真实，以至于你不能醒来。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2023-04-05</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><blockquote>
+<p>&ldquo;时常在深夜，准确的说，几乎都在凌晨两点左右。在我侧卧辗转准备入睡的几个不寻常夜晚，有极高的概率听见天窗之外，烟花的爆裂声响彻上空。首次我以为偶然，后来开始纳闷，并非逢年过节，怎么会在凌晨选择放烟花呢？不怕扰民被举报吗？这么个时候，是迷信地看时辰吗？不然放给谁看的呢？想不明白，这种现象偏离了我的日常生活经验。&rdquo;</p>
+</blockquote>
+<p>以上是执念写就的，在第一次听到深夜的烟花，我感到很是惊奇，一直想把感受写下来。可是一拖再拖（夜半烟花已经是去年初遇到的事情了），当时的感受和想法也渐渐淡去，以上平白毫无张力的文字就是现在补写的产物，以此警醒。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider" id="memo-year-2022" data-batch="0"><span>2022</span></div>
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2022-08-20</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><blockquote>
+<p>人生是旷野，不是轨道。</p>
+</blockquote>
+<p>可我现在想的、说的，好像都是在为进入轨道做准备哎。工作赚钱、接受相亲、和父母亲人说想办法工作离家再近些，后面自然是结婚生育的明晃大道。<br />
+如果一个人嘴上说的和做的相左，那他一定是不相信他自己说的。<br />
+当你自己告诫别人要多尝试的时候，自己可不要拒绝所有的开始，对自己都言行不一者可是个笨蛋。<br />
+不用思虑太多，真诚就好了。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2022-06-08</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>我的难受和失望是来自期望的落空，以为真心能换来真心，殊不知世上每件事的发展都只包含可能性，哪有一定之事，除了死亡。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2022-05-28</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>踏进家门，熄暗房间里的灯，我站在阳台上看夜色惨淡。<br />
+头顶闪烁着淡黄色的星光，让其下一切仿佛都虚幻起来。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2022-02-28</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>独立思考。<br />
+如何能够辨认，你脑中的想法不是外界灌输而来，而是自己思考产生的呢？<br />
+我想到一点：从自我经验出发，将以前的生活化为一个个场景，排列组合成人生百态，将自己放入其中去思考，基于模拟而产生形象的思考，是以得出一些自己的东西。<br />
+人来到这个世界上，在信息爆炸的时代，你不可能不被潮流裹挟，这个时候，最重要的呢，就是自我意识，意识到有一些想法其实非你本意。在端倪初现时，就重视起来，不要沉浸于廉价的感动，堕入媚俗之坑。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2022-02-24</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>每当我向床头扔去一双袜子的时候，就有一种幸福油然而生。<br />
+这也让我想起我可亲的母亲，感受MIX。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2022-02-07</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>自然而然是理想的状态，然而现实总有催促的声响。别离如何，相遇又如何。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider" id="memo-year-2021" data-batch="0"><span>2021</span></div>
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2021-11-08</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>远山如黛，晨光熹微。<br />
+近处是一大片茶田，浓郁的绿色在清晨的薄雾里好像能浸出水来。她站在田埂上，背倚山阴，一头秀发在清晨的光线里微微泛黄，手里摇着一把桃心扇，竹篾纵横，小巧玲珑。</p>
+<hr />
+<p>这是一条横跨钱塘江的桥，在夜晚尤其耀眼。那时，一盏盏路灯在昏暗夜空的映衬下，好似一条天上的街市，加上江水里的倒影，如梦如幻。人若在这样的氛围下呐喊，必然是一种酣畅淋漓的体验。</p>
+<hr />
+<p>粗糙湿润的沙土是我脚踩之处，在我的面前，上空是灰色厚重的云层塞满整个天空，下面是浅绿色的大海，它们相接之处并不融洽，黑色的云层往低空翻涌，好像要把这大海连同我在内全部吞噬。</p>
+<hr />
+<p>女孩头发有点发黄，而且软塌塌的，鬓边飘着几缕发丝，大部分都被绕到耳朵后边去了。<br />
+她戴着一副圆框眼镜，偏椭圆，眼镜的上框离她带弧度的眉毛稍有半公分的距离，这下面长了一双神气的眼睛，偶尔淡漠。<br />
+头发是特地为他束起来的，尽管她这几年，早已习惯了散发生活。这次来到他的城市，她忽然觉得，回到以前在一起时她的样子去见他，想必十分有趣。</p>
+<hr />
+<p>知识青年，斜跨军包，梳俩长辫，上山下乡。<br />
+千禧年，在文化大举侵入的年代，年轻人追逐个性解放的自由，反对主流，非主流。那些夸张的长发与色彩，会在记忆里闪闪发光。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2021-04-20</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>我在等水烧开，刚想调一调页面视图，还没找到呢，水已经快要烧开了。</p>
+<p>这件事说明一个问题：经常性地做着做着就忘记了，做这件事原本的目的，所谓初心。为了拖延达到目的的时间，你故意在意与形式等一些其实本无关紧要的东西。</p>
+<p>譬如这件事：<br />
+初心：我乘着烧水时间写点东西，表达下当下感受。<br />
+实际：刚打了两三个字，去换字体，然后觉着不是全屏，不是那么舒服沉浸（拜托，你写总共才能有几分钟），找方法能全屏输入，而实际找了半天，发现并未发现这个功能，于是，你软件全屏，然后，诶，继续找……几分钟后，你发现，诶，水快开了耶……<br />
+结果：没写几个字，浪费时间，页面也没弄好，说不定下次想写，还要接着浪费</p>
+<p>好了，现在去灌水，洗脚，睡觉。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider" id="memo-year-2019" data-batch="0"><span>2019</span></div>
+                  
+                  <div class="memo-card" data-batch="0">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2019-12-08</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>难受，写好的东西，就因为连个网，手速过快，被全删了。谨记教训。以后自己下手的时候，该快的快，该谨慎的时候就该慢些。</p>
+<p>刚在回忆过程中，意思是记得的，遣词造句是忘了的，人的说出来写出来的东西，并不是完全属于他自己，每个人都是存活于瞬间的生物，是记忆把我们联系为一个整体印象。突然想到的事，得动笔写下来。因为，记忆是一件很难得的事，遗忘是大概率事件，也许下一秒你就能回忆起，可也许你们永远也不再见了。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2019-10-05</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>一夜北风来，梦中闯入秋天。</p>
+<p>前日赤胳臂于裸阳下，今朝裹双手入长袖中。</p>
+<p>这一场深夜雨，不仅驱走酷暑，连温秋也一并跳过了。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2019-05-10</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>虚无感。可怕的虚无感像恶魔一样在旷野里游荡。</p>
+<p>我不清楚为什么我会存在于这么阴暗的天空下。我是谁，从哪里来，发生了什么？</p>
+<p>记忆一片模糊。</p>
+<p>我轻轻抬起双手，来回翻转一下确认我是真正地存在着，而不是梦，不由有一种劫后余生的庆幸从心底涌出来，但我一点也不明白为什么。</p>
+<p>我站起身来，左手边是一棵棕红色的树木，只有树干，四散朝天。脚下是黝黑坚硬的岩石，树是从岩缝里冲出来的。岩石不很大，近似一个椭圆，有很多细小的棱角。</p>
+<p>手扶着树干，树干却不是想象中的粗糙，而是光滑如同溪流里的鹅卵石，摸起来像涂了漆的瓷器。这真的是树么?</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider memo-hidden" id="memo-year-2017" data-batch="1"><span>2017</span></div>
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2017-01-14</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>大学时代的最后一门课，在今天落下帷幕。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-year-divider memo-hidden" id="memo-year-2015" data-batch="1"><span>2015</span></div>
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2015-09-28</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>现在的生活状态就像，在路上走着走着一脚踩进了泥潭里。</p>
+<p>有一只脚踏在实地上，这使你有了挣扎的余地，有全身而退的希望。可你又望见不远处就是目的地，只要跨过泥潭即可到达，且泥潭似乎也不是特别宽，你这样安慰自己：&ldquo;说不定只是浅沼，再踩踩就实了，何况我只要跨上几步就是胜利的终点了&rdquo;。故而同时产生了不会越陷越深的侥幸心理，毕竟，或许我就是那个例外呢？要知道，我的鞋子可是大而宽的，我的全力冲的速度是不慢的……似乎胜利近唾手可得。</p>
+<p>继续还是放弃？这样看，你比谁都要清楚，可你也比谁都不想清楚。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2015-09-22</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>在一生的最后时刻，我看到那个身影向我走来。眼前有团光晕愈来愈盛，而黑暗，伴随着无数个过去的日子在身后慢慢退散。时间，在此刻仿若变得仁慈。我渐渐看清她的面庞，平静的心漾起一丝涟漪。我很欣慰，逝去的时光都是值得的，她，的确很美。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2015-09-17</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>在虚无的时光里，我们为谁喜而又为谁悲呢？放不下的，是一直在努力的自己啊。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2015-09-09</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>大概这世间最轻盈的喜悦，就是你爱的人也恰好爱你。既难得又短促，这样的日子都是珍珠，点缀孤单的人生路。</p>
+</div>
+                    
+                  </div>
+                
+                  
+                  <div class="memo-card memo-hidden" data-batch="1">
+                    <div class="memo-header">
+                      <img class="memo-avatar"
+                           src="https://yfnwu.com/images/avatar.png"
+                           alt="一粟燃星" />
+                      <div>
+                        <div class="memo-author">粟一</div>
+                        <div class="memo-date">2015-09-07</div>
+                      </div>
+                    </div>
+                    <div class="memo-content"><p>无论什么时候开始，重要的是开始之后就不再停止。</p>
+</div>
+                    
+                  </div>
+                
+              </div>
+
+              <button type="button" class="memo-loadmore" id="memoLoadMore">加载更多</button>
+
+            
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div style="text-align:center">
+    <i class="fa fa-clock-o"></i> 本站已运行：<strong><script type="text/javascript">
+		var urodz = new Date("10/29/2019");
+		function updateRunTime() {
+			var now = new Date();
+			var ile = now.getTime() - urodz.getTime();
+			var days = Math.floor(ile / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((ile % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((ile % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((ile % (1000 * 60)) / 1000);
+			document.getElementById("runTime").innerHTML = days + " 天 " + hours + " 小时 " + minutes + " 分 " + seconds + " 秒";
+		}
+		setInterval(updateRunTime, 1000);
+		</script>
+		<span id="runTime">计算中...</span></strong>
+  </div>
+  <div style="text-align:center">
+  访问次数：<strong><span id="busuanzi_value_site_pv"></span></strong>
+  <span class="post-meta-divider">|</span>
+  访问人数：<strong><span id="busuanzi_value_site_uv"></span></strong>
+  </div>
+    <div class="copyright">
+      © 2019-2026 Created By
+      <a href="https://yfnwu.com" target="_blank" rel="noopener">Suyi</a>
+      <span class="post-meta-divider">|</span>
+      Theme By
+      <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">Next</a>
+      <span class="post-meta-divider">|</span>
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">苏ICP备2022023915号-1</a>
+    </div>
+  </footer>
+  
+  
+  <button type="button" class="gemini back-to-top" id="back_to_top" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </button>
+  
+  
+  
+  <div class="bg-img">
+    <img src="/media/images/2.jpg" />
+  </div>
+  
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(0, _currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(0, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let scrollEl = document.scrollingElement;
+    let docHeight = scrollEl.scrollHeight - scrollEl.clientHeight;
+    let percent = docHeight > 0 ? (scrollEl.scrollTop / docHeight) * 100 : 0;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  }, { passive: true });
+
+
+  let fixedPanelRaf = null;
+  function scheduleFixedLeftPanel() {
+    if (fixedPanelRaf) cancelAnimationFrame(fixedPanelRaf);
+    fixedPanelRaf = requestAnimationFrame(function () {
+      fixedPanelRaf = null;
+      setupFixedLeftPanel();
+    });
+  }
+  window.addEventListener('resize', scheduleFixedLeftPanel);
+  window.addEventListener('load', function (e) {
+    setupFixedLeftPanel();
+  });
+
+  function setupFixedLeftPanel() {
+    // 桌面端 gemini/pisces：把 blog-header + sidebar 组合成整体固定的左侧面板，
+    // 位置跟随居中的 .section-layout-wrapper，而不是视口最左边缘
+    let isGeminiPisces = back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini');
+    if (!isGeminiPisces) return;
+
+    let sideBar = document.querySelector('.sidebar');
+    let blogHeader = document.querySelector('.blog-header');
+    let sectionBox = document.querySelector('.section-box');
+    let wrapper = document.querySelector('.section-layout-wrapper');
+    if (!sideBar || !blogHeader || !wrapper) return;
+
+    if (window.innerWidth >= 992) {
+      // 计算内容区左边缘，让左侧面板固定在内容区左侧
+      let wrapperLeft = wrapper.getBoundingClientRect().left;
+      let headerHeight = blogHeader.offsetHeight;
+
+      blogHeader.style.left = wrapperLeft + 'px';
+      sideBar.style.left = wrapperLeft + 'px';
+      // blog-header 与 sidebar 之间保留 15px 间隙，形成两个独立卡片
+      sideBar.style.top = (headerHeight + 15) + 'px';
+      sideBar.style.marginTop = '0';
+
+      // 正文区整体右移，给左侧面板留出 240px
+      if (sectionBox) sectionBox.style.marginLeft = '240px';
+    } else {
+      // 移动端/窄屏恢复默认
+      blogHeader.style.left = '';
+      sideBar.style.left = '';
+      sideBar.style.top = '';
+      sideBar.style.marginTop = '';
+      if (sectionBox) sectionBox.style.marginLeft = '';
+    }
+  }
+  setupFixedLeftPanel();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      jQuery.Velocity(rightSideBar, 'stop');
+      jQuery.Velocity(viewport, 'stop');
+      jQuery.Velocity(rightMotions, 'stop');
+      if (open) {
+        jQuery.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            jQuery.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        jQuery.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        jQuery.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            jQuery.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        jQuery.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch && faSearch.addEventListener('click', function () {
+    let sm = document.querySelector('#search_mask');
+    if (sm) sm.style.display = '';
+  })
+
+  // 代码高亮（兼容 highlight.js 异步/延迟加载）
+  if (typeof hljs !== 'undefined') {
+    hljs.initHighlightingOnLoad();
+  }
+  
+  // 离开当前页title变化
+  var leaveTitle = "ByeBye~";
+  var normal_title = document.title;
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
+</script>
+
+<link rel="stylesheet" href="/media/css/jquery.fancybox.css" media="print" onload="this.media='all'">
+<script defer src="/media/js/jquery.fancybox.js"></script>
+
+<script>
+  let images = document.querySelectorAll('.section img');
+  images.forEach(image => {
+    var parent = image.parentElement;
+    var next = image.nextElementSibling;
+    parent.removeChild(image);
+    var aelem = document.createElement('a');
+    aelem.href = image.src;
+    aelem.dataset['fancybox'] = 'images';
+    aelem.dataset['rel'] = 'fancybox-button';
+    aelem.classList.add('fancybox');
+    aelem.appendChild(image);
+    parent.insertBefore(aelem, next);
+  })
+</script>
+
+  </div>
+<script>console.log("\n%c ✦ Gridea Pro v1.2.2 %c · Theme: NexT v0.4.1 · https://gridea.pro %c\n","color:#fadfa3;background:#111111;padding:9px 14px;border-radius:4px 0 0 4px;font-weight:500;font-size:12px","color:#e05c00;background:#fff3ec;padding:9px 14px;border-radius:0 4px 4px 0;font-size:11px","")</script>
+</body>
+
+<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索" aria-label="搜索文章">
+      </div>
+      <button type="button" id="close" class="fa fa-times-circle" aria-label="关闭搜索"></button>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result"></div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+
+    close.addEventListener('click', function() {
+      searchMask.style.display = 'none';
+    })
+
+    // 点击遮罩本体（搜索框外暗色区域）关闭
+    searchMask.addEventListener('click', function (e) {
+      if (e.target === searchMask) {
+        searchMask.style.display = 'none';
+      }
+    })
+
+    // 按 Esc 关闭搜索浮层
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && searchMask && searchMask.style.display !== 'none') {
+        searchMask.style.display = 'none';
+      }
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    let dataLoaded = false;
+    let dataLoading = false;
+
+    // 从 Gridea 生成的 /api/search.json 按需加载搜索数据，避免把全站正文内嵌进每个页面
+    function loadSearchData() {
+      dataLoading = true;
+      return fetch('/api/search.json')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          contents = (data || []).map(function (item) {
+            return { title: item.title, details: item.content || '', link: item.link };
+          });
+          dataLoaded = true;
+        })
+        .catch(function (err) {
+          console.error('[Search] 加载 /api/search.json 失败:', err);
+        })
+        .then(function () { dataLoading = false; });
+    }
+
+    // 首次聚焦搜索框时才加载数据（避免每个页面都提前下载 198KB）
+    if (searchBox) {
+      searchBox.addEventListener('focus', function () {
+        if (!dataLoaded && !dataLoading) loadSearchData();
+      });
+    }
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+      timer = setTimeout(() => {
+        if (!dataLoaded) return;
+        let start = Date.now();
+        let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              const seg = segment.toLowerCase();
+              const titleLower = content.title.toLowerCase();
+              const detailsLower = content.details.toLowerCase();
+              if (titleLower.includes(seg)) {
+                find = true;
+                let idx = titleLower.indexOf(seg);
+                while (idx !== -1) {
+                  positions.push({ start: idx, count: seg.length });
+                  idx = titleLower.indexOf(seg, idx + seg.length);
+                }
+              } else if (detailsLower.includes(seg)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      // 兜底：未来时间/负数直接按 0 处理，显示“刚刚”
+      if (time < 0) time = 0;
+      if (time < 60) {
+        str = '刚刚';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择文本
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+
+<script src="/media/js/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 200
+  });
+</script>
+
+
+<script src="/media/js/mouse/love.js"></script>
+
+
+<script src="/media/js/cool.js"></script>
+
+
+
+
+
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?d7de88572dde7e18fbb8a5894ca57969";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+<script>
+(function () {
+  // —— 文章总数：从 Gridea 自动生成的 sitemap.xml 实时统计 /post/ 页面 ——
+  // sitemap 每次同步都是全量最新，数字永远正确，且不受“同步重新生成”覆盖。
+  function refreshPostTotal() {
+    var elArticle = document.getElementById('articleCount');
+    var elArchive = document.getElementById('archiveCount');
+    function paint(n) {
+      if (elArticle) elArticle.textContent = n;
+      if (elArchive) elArchive.textContent = n;
+    }
+    // 先用本地缓存，避免每次刷新闪烁
+    var cached = 0;
+    try { cached = parseInt(localStorage.getItem('yf_total_posts') || '0', 10); } catch (e) {}
+    if (cached > 0) paint(cached);
+    fetch(location.origin + '/sitemap.xml', { cache: 'no-cache' })
+      .then(function (r) { return r.text(); })
+      .then(function (xml) {
+        var locs = xml.match(/<loc>[^<]*<\/loc>/g) || [];
+        var count = 0;
+        for (var i = 0; i < locs.length; i++) {
+          var url = locs[i].replace(/<\/?loc>/g, '');
+          if (/\/post\//.test(url)) count++;
+        }
+        if (count > 0) {
+          try { localStorage.setItem('yf_total_posts', count); } catch (e) {}
+          paint(count);
+        }
+      })
+      .catch(function () { /* sitemap 取不到就保留缓存/占位 */ });
+  }
+
+  // —— 图片增强：正文图加 loading=lazy；缺 alt 的补文件名派生 alt ——
+  // 注意：不再运行时回填 width/height。本主题 CSS 没有全局 height:auto，
+  // img 一旦带 height 属性，浏览器会把它当固定高度提示 → 图片被拉伸/异常变高，
+  // 且 CSS aspect-ratio 会被绕过（必须 height:auto 才生效）。CLS 防护交给 CSS。
+  function enhanceImages() {
+    var imgs = document.querySelectorAll('.post-body img, #post_body img, .next-md-body img, .memo-content img, article img');
+    for (var i = 0; i < imgs.length; i++) {
+      (function (img) {
+        if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+        if (!img.getAttribute('alt')) {
+          try {
+            var src = decodeURIComponent(img.getAttribute('src') || '');
+            var name = src.split('/').pop().split('?')[0];
+            if (name) img.setAttribute('alt', name);
+          } catch (e) {}
+        }
+      })(imgs[i]);
+    }
+  }
+
+  function init() {
+    refreshPostTotal();
+    enhanceImages();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<script>
+(function() {
+  var dataEl = document.getElementById('memosHeatmapData');
+  var gridEl = document.getElementById('memosHeatmap');
+  if (!dataEl || !gridEl) return;
+
+  var data;
+  try { data = JSON.parse(dataEl.textContent); } catch(e) { return; }
+
+  var countMap = {};
+  data.forEach(function(item) {
+    if (item.date) {
+      countMap[item.date] = (countMap[item.date] || 0) + 1;
+    }
+  });
+
+  var today = new Date();
+  var startDate = new Date(today);
+  startDate.setDate(startDate.getDate() - 364);
+  startDate.setDate(startDate.getDate() - startDate.getDay());
+
+  function getLevel(count) {
+    if (count === 0) return 0;
+    if (count <= 1) return 1;
+    if (count <= 3) return 2;
+    if (count <= 5) return 3;
+    return 4;
+  }
+
+  function formatDate(d) {
+    return d.getFullYear() + '-' +
+      ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
+      ('0' + d.getDate()).slice(-2);
+  }
+
+  var totalWeeks = 53;
+  for (var w = 0; w < totalWeeks; w++) {
+    var col = document.createElement('div');
+    col.className = 'heatmap-col';
+    for (var d = 0; d < 7; d++) {
+      var cellDate = new Date(startDate);
+      cellDate.setDate(cellDate.getDate() + w * 7 + d);
+      if (cellDate > today) break;
+
+      var dateStr = formatDate(cellDate);
+      var count = countMap[dateStr] || 0;
+      var level = getLevel(count);
+
+      var cell = document.createElement('div');
+      cell.className = 'heatmap-cell' + (level > 0 ? ' lvl' + level : '');
+      cell.title = dateStr + ': ' + count + ' 条闪念';
+      col.appendChild(cell);
+    }
+    gridEl.appendChild(col);
+  }
+
+  // 闪念图片点击放大
+  document.querySelectorAll('.memo-content img').forEach(function(img) {
+    img.addEventListener('click', function() {
+      if (img.classList.contains('full')) {
+        img.classList.remove('full');
+      } else {
+        document.querySelectorAll('.memo-content img.full').forEach(function(i) { i.classList.remove('full'); });
+        img.classList.add('full');
+      }
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('full')) {
+      e.target.classList.remove('full');
+    }
+  });
+})();
+</script>
+
+<script>
+(function() {
+  var batchEls = Array.prototype.slice.call(document.querySelectorAll('[data-batch]'));
+  var loadMoreBtn = document.getElementById('memoLoadMore');
+
+  function batchOf(el) { return parseInt(el.getAttribute('data-batch'), 10); }
+  function revealUpTo(batch) {
+    batchEls.forEach(function(el) { if (batchOf(el) <= batch) el.classList.remove('memo-hidden'); });
+  }
+  function anyHidden() {
+    return batchEls.some(function(el) { return el.classList.contains('memo-hidden'); });
+  }
+
+  // ---- 加载更多 ----
+  if (loadMoreBtn) {
+    function refreshBtn() { loadMoreBtn.style.display = anyHidden() ? '' : 'none'; }
+    loadMoreBtn.addEventListener('click', function() {
+      var next = -1;
+      batchEls.forEach(function(el) {
+        if (el.classList.contains('memo-hidden')) { var b = batchOf(el); if (next === -1 || b < next) next = b; }
+      });
+      if (next === -1) { loadMoreBtn.style.display = 'none'; return; }
+      revealUpTo(next);
+      refreshBtn();
+    });
+    refreshBtn();
+  }
+
+  // ---- 年份快捷导航 ----
+  var navEl = document.getElementById('memoYearNav');
+  var dividers = Array.prototype.slice.call(document.querySelectorAll('.memo-year-divider'));
+  var yearLinks = {};
+  if (navEl && dividers.length) {
+    dividers.forEach(function(div) {
+      var id = div.id;
+      var span = div.querySelector('span');
+      if (!span || !id) return;
+      var a = document.createElement('a');
+      a.href = '#' + id;
+      a.className = 'memo-year-link';
+      a.textContent = span.textContent.trim();
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.getElementById(id);
+        if (!target) return;
+        var navH = navEl ? navEl.offsetHeight : 0;
+        revealUpTo(batchOf(target));
+        if (loadMoreBtn) loadMoreBtn.style.display = anyHidden() ? '' : 'none';
+        requestAnimationFrame(function() {
+          var top = target.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+      });
+      navEl.appendChild(a);
+      yearLinks[id] = a;
+    });
+
+    // ---- 滚动高亮当前年份 ----
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(en) {
+          if (en.isIntersecting) {
+            var id = en.target.id;
+            Object.keys(yearLinks).forEach(function(k) { yearLinks[k].classList.toggle('active', k === id); });
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      dividers.forEach(function(d) { io.observe(d); });
+    }
+  }
+})();
+</script>
+
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业交易记录系统</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .blog-back-link {
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            z-index: 100000;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 13px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 13px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            transition: background 0.2s ease;
+        }
+        .blog-back-link:hover {
+            background: rgba(0, 0, 0, 0.78);
+        }
+    </style>
+</head>
+<body>
+    <a class="blog-back-link" href="/" title="返回博客"><i class="fas fa-arrow-left"></i> 返回博客</a>
+
+    <div id="backup-reminder" class="backup-reminder" style="display:none;">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <span id="backup-reminder-text"></span>
+        <button id="backup-now" class="btn-reminder">立即备份</button>
+        <button id="backup-dismiss" class="btn-reminder-dismiss" title="本次不再提醒">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-candlestick"></i> 专业交易记录系统</h1>
+        <p class="subtitle">记录交易全过程，提升交易决策质量</p>
+    </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <section class="add-transaction">
+                    <h2 id="form-heading"><i class="fas fa-plus-circle"></i> 添加交易记录</h2>
+                    <form id="transaction-form">
+                        <input type="hidden" id="editing-id" value=""> 
+                        <!-- 交易基本信息 -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-info-circle"></i> 基本信息</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="trade-cycle">交易周期 <span class="required">*</span></label>
+                                    <select id="trade-cycle" required>
+                                        <option value="">请选择</option>
+                                        <option value="日线">日线</option>
+                                        <option value="4小时">4小时</option>
+                                        <option value="1小时">1小时</option>
+                                        <option value="15分钟">15分钟</option>
+                                        <option value="5分钟">5分钟</option>
+                                        <option value="波段">波段</option>
+                                        <option value="日内">日内</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trade-type">交易类型 <span class="required">*</span></label>
+                                    <select id="trade-type" required>
+                                        <option value="">请选择</option>
+                                        <option value="波段">波段</option>
+                                        <option value="日内">日内</option>
+                                        <option value="超短">超短</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trade-direction">交易方向 <span class="required">*</span></label>
+                                    <select id="trade-direction" required>
+                                        <option value="">请选择</option>
+                                        <option value="多">多</option>
+                                        <option value="空">空</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="trade-market">交易市场 <span class="required">*</span></label>
+                                    <select id="trade-market" required>
+                                        <option value="">请选择</option>
+                                        <option value="A股">A股</option>
+                                        <option value="商品期货">商品期货</option>
+                                        <option value="外汇">外汇（兼容旧数据）</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="trade-symbol">交易品种 <span class="required">*</span></label>
+                                    <select id="trade-symbol" required>
+                                        <option value="">请选择</option>
+                                        <optgroup label="A股" id="astock-group">
+                                            <option value="__custom__">➕ 手动输入品种名称...</option>
+                                            <option value="600519">贵州茅台(600519)</option>
+                                            <option value="300750">宁德时代(300750)</option>
+                                            <option value="600036">招商银行(600036)</option>
+                                            <option value="000858">五粮液(000858)</option>
+                                            <option value="601318">中国平安(601318)</option>
+                                            <option value="600900">长江电力(600900)</option>
+                                            <option value="510300">沪深300ETF(510300)</option>
+                                            <option value="588000">科创50ETF(588000)</option>
+                                        </optgroup>
+                                        <optgroup label="商品期货">
+                                            <option value="RB">螺纹钢(RB)</option>
+                                            <option value="HC">热卷(HC)</option>
+                                            <option value="I">铁矿石(I)</option>
+                                            <option value="J">焦炭(J)</option>
+                                            <option value="JM">焦煤(JM)</option>
+                                            <option value="CU">沪铜(CU)</option>
+                                            <option value="AL">沪铝(AL)</option>
+                                            <option value="ZN">沪锌(ZN)</option>
+                                            <option value="AU">黄金(AU)</option>
+                                            <option value="AG">白银(AG)</option>
+                                            <option value="SC">原油(SC)</option>
+                                            <option value="FU">燃油(FU)</option>
+                                            <option value="BU">沥青(BU)</option>
+                                            <option value="M">豆粕(M)</option>
+                                            <option value="Y">豆油(Y)</option>
+                                            <option value="P">棕榈油(P)</option>
+                                            <option value="C">玉米(C)</option>
+                                            <option value="SR">白糖(SR)</option>
+                                            <option value="CF">棉花(CF)</option>
+                                            <option value="TA">PTA(TA)</option>
+                                            <option value="MA">甲醇(MA)</option>
+                                            <option value="RU">橡胶(RU)</option>
+                                            <option value="AP">苹果(AP)</option>
+                                            <option value="IF">沪深300股指(IF)</option>
+                                            <option value="IC">中证500股指(IC)</option>
+                                            <option value="IH">上证50股指(IH)</option>
+                                        </optgroup>
+                                        <optgroup label="外汇（兼容）">
+                                            <option value="XAUUSD">黄金/XAUUSD</option>
+                                            <option value="EURUSD">欧元/美元</option>
+                                            <option value="GBPUSD">英镑/美元</option>
+                                            <option value="USDJPY">美元/日元</option>
+                                            <option value="BTCUSD">比特币</option>
+                                        </optgroup>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                    <input type="text" id="custom-symbol" class="custom-symbol-input" placeholder="输入股票名称或代码，如 比亚迪 / 002594" style="display:none; margin-top:8px;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="standard-lot-value">合约乘数 <span class="required">*</span></label>
+                                    <input type="number" id="standard-lot-value" step="0.01" min="0" value="100" required>
+                                    <div class="input-hint">(每点/每手金额：A股=100股/手，期货见合约，如螺纹钢10)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="trade-background">交易背景 <span class="required">*</span></label>
+                                <textarea id="trade-background" rows="2" placeholder="例如：美联储利率决议前，市场情绪谨慎..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- 开仓信息 -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-door-open"></i> 开仓信息</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="entry-time">开仓时间 <span class="required">*</span></label>
+                                    <input type="text" id="entry-time" class="datetime-input" placeholder="选择日期和时间" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="position-size"><span id="position-size-label-text">手数</span> <span class="required">*</span></label>
+                                    <div class="position-input-container">
+                                        <input type="number" id="position-size" step="0.01" min="0.01" required>
+                                        <div class="lot-calculator">
+                                            <div class="lot-info">
+                                                <span id="lot-label">手数: </span>
+                                                <span id="standard-lots">0.00</span>
+                                            </div>
+                                            <div class="lot-info">
+                                                <span>每点价值: </span>
+                                                <span id="per-pip-value">¥0.00</span>
+                                            </div>
+                                        </div>
+                                        <div class="input-hint" id="position-size-hint"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="entry-price">开仓价格 <span class="required">*</span></label>
+                                    <input type="number" id="entry-price" step="0.0001" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="entry-signal">开仓方式 <span class="required">*</span></label>
+                                    <select id="entry-signal" required>
+                                        <option value="">请选择</option>
+                                        <option value="突破">突破</option>
+                                        <option value="回调">限价单</option>
+                                        <option value="反转">市价</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="entry-reason">开仓理由 <span class="required">*</span></label>
+                                <textarea id="entry-reason" rows="2" placeholder="详细描述开仓的理由和逻辑..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- 风险管理 -->
+                        <!-- 在风险管理部分修改实际风险字段 -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-shield-alt"></i> 风险管理</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="initial-stop">初始止损 <span class="required">*</span></label>
+                                    <div class="risk-input-container">
+                                        <input type="number" id="initial-stop" step="0.0001" min="0" required>
+                                        <div class="risk-info">
+                                            <span>止损点数: </span>
+                                            <span id="stop-pips">0.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="initial-target">初始目标 <span class="required">*</span></label>
+                                    <div class="risk-input-container">
+                                        <input type="number" id="initial-target" step="0.0001" min="0" required>
+                                        <div class="risk-info">
+                                            <span>目标点数: </span>
+                                            <span id="target-pips">0.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="actual-risk">实际风险（金额）</label>
+                                    <div class="risk-input-container">
+                                        <div class="actual-risk-input-wrapper">
+                                            <input type="number" id="actual-risk" step="0.01" min="0">
+                                            <div class="actual-risk-hint">
+                                                <span id="actual-risk-percent">0%</span> 的初始风险
+                                            </div>
+                                        </div>
+                                        <div class="risk-info">
+                                            <span>风险点数: </span>
+                                            <span id="risk-pips">0.00</span>
+                                            <span> | </span>
+                                            <span>风险价值: </span>
+                                            <span id="risk-value">¥0.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="risk-reward">初始风险回报比</label>
+                                    <input type="text" id="risk-reward" readonly placeholder="自动计算">
+                                </div>
+                            </div>
+                            
+                            <!-- 添加实际风险说明 -->
+                            <div class="risk-explanation">
+                                <p><i class="fas fa-info-circle"></i> 
+                                实际风险：持仓过程中遇到的最大风险，通常小于等于初始风险（基于止损价计算的潜在最大损失）。
+                                例如：移动止损后、提前减仓等情况。</p>
+                            </div>
+                        </div>
+
+                        <!-- 平仓信息 -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-door-closed"></i> 平仓信息</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="exit-time">平仓时间</label>
+                                    <input type="text" id="exit-time" class="datetime-input" placeholder="选择日期和时间">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exit-price">平仓价格</label>
+                                    <input type="number" id="exit-price" step="0.0001" min="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fee">手续费/税费（¥）</label>
+                                    <input type="number" id="fee" step="0.01" min="0" placeholder="A股自动计算；期货/外汇手动填">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="actual-risk-reward">实际风险回报比</label>
+                                    <input type="text" id="actual-risk-reward" readonly placeholder="平仓后自动计算">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exit-reason">平仓理由</label>
+                                    <select id="exit-reason">
+                                        <option value="">请选择</option>
+                                        <option value="止损">止损出场</option>
+                                        <option value="止盈">止盈出场</option>
+                                        <option value="手动">手动平仓</option>
+                                        <option value="时间">前提不成立</option>
+                                        <option value="信号">反向信号</option>
+                                        <option value="其他">其他原因</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 附加信息 -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-paperclip"></i> 附加信息</h3>
+                            <div class="form-group">
+                                <label for="screenshot">交易截图</label>
+                                <div class="file-upload">
+                                    <input type="file" id="screenshot" accept="image/*" class="file-input">
+                                    <label for="screenshot" class="file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>点击上传交易截图</span>
+                                    </label>
+                                    <div class="file-preview" id="file-preview"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="notes">备注</label>
+                                <textarea id="notes" rows="3" placeholder="交易总结、心得体会、改进建议等..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- 表单操作 -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary" id="submit-btn">
+                                <i class="fas fa-save"></i> 保存交易记录
+                            </button>
+                            <button type="button" id="reset-form" class="btn-secondary">
+                                <i class="fas fa-redo"></i> 重置表单
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            
+            <div class="right-panel">
+                
+                <section class="quick-view">
+                    <h2><i class="fas fa-chart-bar"></i> 可视化分析</h2>
+                    <div class="charts-container">
+                        <div class="chart-wrapper">
+                            <h3>📊 各周期盈亏统计</h3>
+                            <div id="chart-cycle" style="width: 100%; height: 250px;"></div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <h3>⏰ 入场时段胜率分析</h3>
+                            <div id="chart-hourly" style="width: 100%; height: 250px;"></div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <h3>🎯 平仓理由分布</h3>
+                            <div id="chart-exit" style="width: 100%; height: 250px;"></div>
+                        </div>
+                    </div>
+                </section>
+                <section class="transactions-list">
+                    <div class="section-header">
+                        <h2><i class="fas fa-list"></i> 交易记录</h2>
+                        <div class="search-filter">
+                            <input type="text" id="search" placeholder="搜索交易背景或备注...">
+                            
+                            <!-- 添加日期范围搜索 -->
+                            <div class="date-range-filter">
+                                <input type="date" id="date-from" placeholder="起始日期">
+                                <span>至</span>
+                                <input type="date" id="date-to" placeholder="结束日期">
+                            </div>
+                            
+                            <select id="filter-market">
+                                <option value="">所有市场</option>
+                                <option value="A股">A股</option>
+                                <option value="商品期货">商品期货</option>
+                                <option value="外汇">外汇</option>
+                            </select>
+                            <select id="filter-direction">
+                                <option value="">所有方向</option>
+                                <option value="多">多头</option>
+                                <option value="空">空头</option>
+                            </select>
+                            <select id="filter-cycle">
+                                <option value="">所有周期</option>
+                                <option value="日线">日线</option>
+                                <option value="4小时">4小时</option>
+                                <option value="1小时">1小时</option>
+                                <option value="15分钟">15分钟</option>
+                                <option value="5分钟">5分钟</option>
+                                <option value="波段">波段</option>
+                                <option value="日内">日内</option>
+                            </select>
+                            <select id="filter-type">
+                                <option value="">所有类型</option>
+                                <option value="波段">波段</option>
+                                <option value="日内">日内</option>
+                                <option value="超短">超短</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-summary">
+                        <div class="stat-item">
+                            <span class="stat-label">总交易数：</span>
+                            <span class="stat-value" id="total-count">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">胜率：</span>
+                            <span class="stat-value" id="win-rate">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">总盈亏：</span>
+                            <span class="stat-value" id="total-pl">¥0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">平均R比：</span>
+                            <span class="stat-value" id="avg-r">0.0</span>
+                        </div>
+                    </div>
+
+                    <div class="table-actions">
+                        <button id="export-data" class="btn-secondary">
+                            <i class="fas fa-download"></i> 导出数据
+                        </button>
+                        <button id="export-markdown" class="btn-secondary">
+                            <i class="fas fa-file-alt"></i> 导出 Markdown
+                        </button>
+                        <button id="import-data" class="btn-secondary">
+                            <i class="fas fa-upload"></i> 导入数据
+                        </button>
+                        <button id="clear-all" class="btn-danger">
+                            <i class="fas fa-trash-alt"></i> 清空记录
+                        </button>
+                        <label class="auto-backup-toggle" title="开启后，每次保存交易都会自动下载一份 JSON 备份到下载目录">
+                            <input type="checkbox" id="auto-backup"> 保存后自动备份
+                        </label>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="transactions-table">
+                            <!-- 在表格的thead部分修改 -->
+                            <thead>
+                                <tr>
+                                    <th data-sort="entryTime" class="sortable-header">
+                                        时间 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="tradeCycle" class="sortable-header">
+                                        周期 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="tradeType" class="sortable-header">
+                                        类型 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="tradeDirection" class="sortable-header">
+                                        方向 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="tradeDirection" class="sortable-header">
+                                        品种 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="tradeMarket" class="sortable-header">
+                                        市场 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="positionSize" class="sortable-header">
+                                        数量 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="entryPrice" class="sortable-header">
+                                        开仓价 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="initialStop" class="sortable-header">
+                                        止损 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="initialTarget" class="sortable-header">
+                                        目标 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="exitPrice" class="sortable-header">
+                                        平仓价 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th data-sort="actualProfitLoss" class="sortable-header">
+                                        盈亏 <i class="fas fa-sort"></i>
+                                    </th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-body">
+                                <tr id="no-transactions">
+                                    <td colspan="13" class="empty-message">
+                                        <i class="fas fa-info-circle"></i> 暂无交易记录
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+        
+        <footer>
+            <p>交易记录系统 © <span id="footer-year">2026</span></p>
+            <p>📈 系统化记录交易，提升复盘质量</p>
+            <p class="credit">基于开源项目 <a href="https://github.com/ChangeY1n/PAtraining" target="_blank" rel="noopener">ChangeY1n/PAtraining</a> 优化而来</p>
+        </footer>
+    </div>
+
+    <!-- 导入数据模态框 -->
+    <div id="import-modal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-file-import"></i> 导入交易数据</h3>
+            <p>请选择之前导出的JSON文件进行导入。注意：将按交易 ID 合并，不会覆盖已有记录。</p>
+            <div class="file-upload-modal">
+                <input type="file" id="import-file" accept=".json">
+                <label for="import-file" class="file-label-modal">
+                    <i class="fas fa-file-upload"></i>
+                    <span>选择JSON文件</span>
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-import" class="btn-primary">导入</button>
+                <button id="cancel-import" class="btn-secondary">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情查看模态框 -->
+    <div id="detail-modal" class="modal detail-modal">
+        <div class="modal-content detail-modal-content">
+            <div class="modal-header">
+                <h3 id="detail-title">交易详情</h3>
+                <button id="close-detail" class="close-btn">&times;</button>
+            </div>
+            <div id="detail-content" class="detail-modal-body">
+                <!-- 详情内容会动态加载 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入Flatpickr时间选择器 -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

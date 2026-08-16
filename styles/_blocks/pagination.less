@@ -1,0 +1,60 @@
+.page {
+  background-color: transparent;
+  opacity: 1;
+}
+
+.page a {
+  border: none;
+}
+
+.pagination-ul {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 10px 0 0;
+  display: block;
+  list-style-type: disc;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-top: 0;
+}
+
+/* ===== 首页 / 博客页：分页条白色边缘与文章卡片白色边缘对齐 =====
+   gemini + 背景图 下 .post-list-box.box-shadow-wrapper 有 10px padding，
+   使 .article-wrapper.bg-color 白卡左右各内缩 10px；
+   .page 是 section 直接子元素、无这层 padding，故用 margin 内缩 10px
+   （padding 只推内容、不动背景边缘，所以不能用 padding）。 */
+.gemini .section:not(.archives-section) .page {
+  margin: 0 10px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pagination-ul li {
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.pagination-ul a{
+  width: 32px;
+  font-size: 16px;
+  padding: 1px 0;
+  display: inline-block;
+  border-top: 1px solid transparent;
+}
+
+.pagination-active a{
+  color: #fff;
+  background: #6c757d;
+  border-top-color: #6c757d;
+}
+
+.pagination-ul a:hover {
+  border-top: 1px solid #222;
+}
+
+.pagination-dir a {
+  width: 32px;
+  display: inline-block;
+  border-top: 1px solid transparent;
+}
