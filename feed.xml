@@ -53,6 +53,184 @@
       <enclosure url="https://pic3.zhimg.com/v2-04b3190c1412032757b661b339e3fec2_r.jpg" length="0" type="image/jpeg"></enclosure>
     </item>
     <item>
+      <title>PES2021 停服如何联机（PESBUL）</title>
+      <link>https://yfnwu.com/post/pes2021/</link>
+      <guid isPermaLink="true">https://yfnwu.com/post/pes2021/</guid>
+      <pubDate>Tue, 03 Nov 2026 06:36:24 +0800</pubDate>
+      <description><![CDATA[<ul>
+<li>
+<p>Konami 已于 2022 年关停 eFootball PES 2021（SEASON UPDATE）全区域在线服务，Steam 商店同步下架，官方联机与购买渠道均不可用。</p>
+</li>
+<li>
+<p>联机最终通过社区私服 PESBUL 实现：Steam 版 PES2021（1.07.02 + DLC 7.0）配合 LITE bypass 与 hosts 重定向，入口为游戏内 Kick Off → Friendly Match Lobby（友谊赛大厅），当前仅支持 1v1。</p>
+</li>
+<li>
+<p>账号方面，因游戏下架无法新购，朋友一侧最终通过购买含该游戏的 Steam 账户解决。</p>
+</li>
+</ul>
+<!-- more -->
+<h2 id="heading">一、联机原理</h2>
+<ul>
+<li>
+<p>PESBUL 是社区私服，模拟 Konami 在线服务的大厅、房间与匹配功能，不模拟 myClub 等其余内容。</p>
+</li>
+<li>
+<p>客户端通过 hosts 将 7 条 <code>*.konami.net</code> 域名指向 <code>151.247.209.104</code>，游戏仍按原逻辑连接「konami.net」，实际到达 PESBUL 服务器。</p>
+</li>
+<li>
+<p>比赛为 P2P 点对点，数据不经过 PESBUL 主服务器[4]，延迟取决于双方网络与 NAT。</p>
+</li>
+<li>
+<p>当前为公测阶段，仅开放 Kick Off → Friendly Match Lobby 的 1v1；11v11 与 Clan Co-op 尚未完成[5]。</p>
+</li>
+</ul>
+<h2 id="heading-1">二、时间线记录</h2>
+<p>按实际操作顺序，标注其中的无效尝试与耗时点。</p>
+<h3 id="1-">1. 本地旧版评估（未采用）</h3>
+<p>本机原本是 CPY 破解加 Smoke Patch 21.3.4 的离线整合版，exe 版本在 1.07.01 一系，数据库被大量修改。结论：不满足 PESBUL 要求（干净 1.07.02 + DLC 7.0），弃用。</p>
+<h3 id="2-">2. 第一次无效尝试（主要耗时点）</h3>
+<ul>
+<li>
+<p>下载三方整合包（1.01.00 + DLC1），解压安装至独立目录并启动测试。</p>
+</li>
+<li>
+<p>结果：版本不符（1.01.00）；游戏可运行，但 myClub、eFootball 等入口均报通讯错误。事后确认这些菜单属官服接口，PESBUL 不模拟；该包也缺少 DLC 7.0 与 PES 2021 Launcher。</p>
+</li>
+<li>
+<p>结论：整套方案作废。</p>
+</li>
+<li>
+<p>经验：动手前先核对 <code>PES2021.exe</code> 文件版本，以及 <code>download</code> 目录内是否存在 <code>dt80_700E_x64.cpk</code>。</p>
+</li>
+</ul>
+<h3 id="3--cpy--pes-2021-launcher">3. 寻找 CPY 用 PES 2021 Launcher（次要耗时点，未成功）</h3>
+<p>Evo-Web 教程中原有的下载链接已被论坛删除[5]；PESBUL 官网 Connect Now 仅提供 Connector，不含 Launcher。公开渠道未获取到，放弃 CPY 路线。</p>
+<h3 id="4--steam">4. 转向 Steam（中途才发现停售）</h3>
+<p>起初没有意识到游戏已停售，先花时间注册了外区 Steam 账户，进入商品页后才发现游戏已下架，无法购买。于是转为利用已有 Steam 库中的 eFootball PES 2021（depot 版本 1.7.2.1，DLC 1–7 完整），并应用 LITE bypass：</p>
+<ul>
+<li>
+<p><code>PES2021.exe</code> 替换为 1.7.2.0（453,546,496 字节）；</p>
+</li>
+<li>
+<p><code>steam_api64.dll</code> 替换为 CreamAPI 版（835,584 字节）；</p>
+</li>
+<li>
+<p>原版备份为 <code>steam_api64_o.dll</code>（262,944 字节）。</p>
+</li>
+</ul>
+<h3 id="5--pesbul-connector">5. 配置 PESBUL Connector</h3>
+<ul>
+<li>
+<p>右键管理员运行 <code>PESBUL_2021_Server_Connector.bat</code>，选 <code>1</code> CONNECT。</p>
+</li>
+<li>
+<p>效果：hosts 写入 7 条映射，自动备份为 <code>hosts.pesbul-backup</code>，选 <code>2</code> 可还原。</p>
+</li>
+</ul>
+<pre><code>151.247.209.104 pes21-x64-gate.cs.konami.net
+151.247.209.104 pes21-x64-stun.cs.konami.net
+151.247.209.104 pesam.stun.service.konami.net
+151.247.209.104 info.service.konami.net
+151.247.209.104 cs.konami.net
+151.247.209.104 ntl.service.konami.net
+151.247.209.104 ntleu.service.konami.net
+</code></pre>
+<h3 id="6-">6. 验证成功</h3>
+<p>Steam 启动 → Kick Off → 列表滚至底部 → Friendly Match Lobby → 创建房间（例：[6492]）。双方同版本、同数据、同 bypass，加入房间后开始比赛，联机成功。</p>
+<h3 id="7-">7. 账号问题（主要耗时点，非技术）</h3>
+<ul>
+<li>
+<p>朋友账号无 PES2021 许可，且无法购买。</p>
+</li>
+<li>
+<p>家庭共享评估：可安装游戏，但同一游戏同一时间仅允许一人运行，不满足同时联机。</p>
+</li>
+<li>
+<p>最终方案：购买含该游戏的 Steam 账户。风险提示：账号交易违反 Steam 用户协议，存在被找回或封禁风险；成交后应立即改绑邮箱、启用手机令牌，风险自行评估。</p>
+</li>
+</ul>
+<h3 id="8-">8. 后续评估（未采用）</h3>
+<ul>
+<li>
+<p>SP Football Life 2026：Smoke Patch 官方 FAQ 明确其为纯离线游戏，无内置在线多人[6]，不适用于 PESBUL。</p>
+</li>
+<li>
+<p>汉化与球队资料补丁：需双方文件完全一致（CPK、<code>DpFileList.bin</code>、<code>EDIT00000000</code> 各自哈希一致）；建议一次只加一类并逐场验证。球员能力类数据不建议改动。</p>
+</li>
+</ul>
+<h2 id="heading-2">三、版本一致性说明</h2>
+<p>按社区现有信息，这个问题分两个层次：</p>
+<p><strong>官方口径</strong>：项目作者明确要求「双方使用相同游戏版本与相同数据库」[5]。大多数连接问题被归因于客户端差异（不同数据库、不同版本、端口被阻断、杀软/防火墙、VPN 路由等）[5]。</p>
+<p><strong>实践经验</strong>：作者同时承认，CPY 版使用的是 1.02 exe，而原版接近 1.07，实际存在混版本联机成功的案例，其本人评价为「说实话是个奇迹」[5]。另有用户反馈，改装过数据库的 CPY 版本也能与多人正常联机[7]。</p>
+<p>由此得到的可操作结论：</p>
+<ul>
+<li>
+<p>版本与数据库尽量一致，这是唯一有官方保证的组合；</p>
+</li>
+<li>
+<p>混版本有过成功案例，但不稳定，不建议作为计划内的方案；</p>
+</li>
+<li>
+<p>数据库被修改过的情况下，联机有成功案例，样本有限，同样不推荐依赖。</p>
+</li>
+</ul>
+<p><strong>以下为存疑项</strong>（社区未给出明确答案）：</p>
+<ol>
+<li>具体校验粒度不明。游戏在进房时究竟比对了哪些文件（exe 版本号、DLC 清单、数据库哈希），PESBUL 作者未说明，「同一版本」的判定依据未知。</li>
+<li>图形类与汉化类补丁（球衣、队徽、中文文本）是否影响联机兼容，未见专门说明。</li>
+<li>CPY 与 Steam 版混联的稳定性边界，仅有零散案例，无统计。</li>
+<li>修改过数据库仍能联机的案例中，修改范围（仅队名外观还是球员数值）没有披露。</li>
+</ol>
+<h2 id="heading-3">四、标准配置步骤（新环境参考）</h2>
+<ol>
+<li>安装 Steam，获取 eFootball PES 2021（完整版或 LITE），确认版本 1.07.02 且 DLC 1–7 完整。</li>
+<li>若为 LITE 版，应用 LITE bypass，保留原始文件备份。</li>
+<li>下载 PESBUL Connector，管理员运行，选 <code>1</code> CONNECT。</li>
+<li>验证：<code>Resolve-DnsName</code> 任一 konami.net 域名应解析至 <code>151.247.209.104</code>。</li>
+<li>Steam 启动游戏 → Kick Off → Friendly Match Lobby。</li>
+</ol>
+<h2 id="heading-4">五、避坑清单</h2>
+<ol>
+<li>入口唯一：仅 Kick Off → Friendly Match Lobby 可用；myClub、eFootball、在线组别、在线合作、Matchday、在线锦标赛均属官服接口，进入即通讯错误。</li>
+<li>版本优先：干净 1.07.02 + DLC 7.0。三方整合包先核对 exe 文件版本与 <code>dt80_700E_x64.cpk</code>。</li>
+<li>不要在 Steam 点击「验证游戏文件完整性」：会还原 exe 至 1.7.2.1，bypass 失效，需重新覆盖。</li>
+<li>双方版本、数据库尽量完全一致；补丁类改动先逐场测试。</li>
+<li>报 <code>C_NAJM_0022</code> 或无法进房：依次检查版本、数据、hosts 条目；仍失败再考虑系统级 VPN（游戏进程需走代理）。</li>
+</ol>
+<h2 id="heading-5">参考来源</h2>
+<ul>
+<li>
+<p>[1] Konami 在线服务状态：<a href="https://qr.konami.com/">https://qr.konami.com/</a></p>
+</li>
+<li>
+<p>[2] Steam 商店页（已停售）：<a href="https://store.steampowered.com/app/1259970/eFootball_PES_2021/">https://store.steampowered.com/app/1259970/eFootball_PES_2021/</a></p>
+</li>
+<li>
+<p>[3] SteamDB（retired）：<a href="https://steamdb.info/app/1259970/">https://steamdb.info/app/1259970/</a></p>
+</li>
+<li>
+<p>[4] PESBUL 公告（比赛为 P2P）：<a href="https://pes2021.pesbul.eu/pes-2021-is-online-again/">https://pes2021.pesbul.eu/pes-2021-is-online-again/</a></p>
+</li>
+<li>
+<p>[5] Evo-Web PESBUL 公测教程（含作者版本要求原文，第 6 页 #162）：<a href="https://evoweb.uk/threads/pes-2021-private-server-online-emulator-open-beta-test-server.106068/">https://evoweb.uk/threads/pes-2021-private-server-online-emulator-open-beta-test-server.106068/</a></p>
+</li>
+<li>
+<p>[6] Smoke Patch FAQ（SPFL 纯离线）：<a href="https://www.pessmokepatch.com/2022/12/FAQ.html">https://www.pessmokepatch.com/2022/12/FAQ.html</a></p>
+</li>
+<li>
+<p>[7] Evo-Web 同帖第 7 页 #217（改装数据库联机案例）：<a href="https://evoweb.uk/threads/pes-2021-private-server-online-emulator-open-beta-test-server.106068/page-7">https://evoweb.uk/threads/pes-2021-private-server-online-emulator-open-beta-test-server.106068/page-7</a></p>
+</li>
+<li>
+<p>[8] PESBUL 官网：<a href="https://pes2021.pesbul.eu/">https://pes2021.pesbul.eu/</a></p>
+</li>
+</ul>
+]]></description>
+      <category>游戏</category>
+      <category>教程</category>
+      <category>AI</category>
+      <enclosure url="https://img.3dmgame.com/uploads/images/thumbpicfirst/20200717/1594967494_906727.jpg" length="0" type="image/jpeg"></enclosure>
+    </item>
+    <item>
       <title>评论系统迁移：从 Valine 到 Waline</title>
       <link>https://yfnwu.com/post/walinecomment/</link>
       <guid isPermaLink="true">https://yfnwu.com/post/walinecomment/</guid>
@@ -638,42 +816,6 @@
 笔记记起来，文章写起来，视频做起来。</p>
 <p>离职日期大抵是确定了，现在正是制定和尝试计划的时候！</p>
 <p>好，下面先开始今天的诗词任务。</p>
-]]></description>
-      <category>日记</category>
-    </item>
-    <item>
-      <title>青草和像素阳光</title>
-      <link>https://yfnwu.com/post/qchxsyg/</link>
-      <guid isPermaLink="true">https://yfnwu.com/post/qchxsyg/</guid>
-      <pubDate>Sat, 20 Jan 2024 15:51:39 +0800</pubDate>
-      <description><![CDATA[<p>灰色云层压着窗框，风寂寂。</p>
-<!-- more -->
-<p>若今儿是工作日，马上就到下班时间。<br />
-而我，折腾来去，才堪堪完成办公环境搭建。这堆电子物件不断被排列组合，反映出三个事实：</p>
-<ol>
-<li>
-<p><strong>人总倾向于做熟悉和不困难之事</strong>。一旦知道后续不可捉摸，便喜欢拖延，尽管你知道这是正确的、必要的道路。</p>
-</li>
-<li>
-<p><strong>环境固然重要，心境才是根本</strong>。注意力是会被周遭分散，有人搬来屏风隔绝世界，有人只需阖上双眼——心若闹市，荒郊野岭也听得见卖糖人吆喝。所以，花费大量精力创造一个自然因素影响最小的环境，事倍功半，不如锻炼如何快速清扫内心。</p>
-</li>
-<li>
-<p><strong>折腾自有其乐趣</strong>。目的达成可喜，路途风景亦可喜。应当想象西西弗斯是幸福的，过程本身就是答案。</p>
-</li>
-</ol>
-<hr />
-<p>晨起九点多，头稍疼，心悒郁，担心感染甲流。呼气吸气，清清嗓，好在没有迹象。<br />
-意起，眼睛不愿睁开；躺下，困意却又消逝。</p>
-<p>断断续续，梦境掠影。<br />
-住在山谷，屋前屋后满是青草，蔓延无垠。草地后见山川，但无论如何奔跑也出不去这片绿色。</p>
-<p>人们说，快乐需要事件激发。后来，我发觉，身体好心情自好。</p>
-<p>雨滴嗒滴嗒，于天窗之上，没有阳光。<br />
-而摩登时代的好处就是，当你环顾四周，寻不见阳光，只消INTERNET搜。像素光芒会照亮脸庞。</p>
-<hr />
-<p>渐醒，女友来电，约好下午一起看纪录片，心情直线UP。<br />
-哦豁，又一个周六，启动！</p>
-<hr />
-<p>2024年01月20日15:31:56  小雨转阴</p>
 ]]></description>
       <category>日记</category>
     </item>
